@@ -2,7 +2,11 @@ package com.twu.objects;
 import org.junit.Test;
 import org.junit.Rule;
 import static org.junit.Assert.assertEquals;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import org.junit.Before;
+import java.util.List;
+import java.util.ArrayList;
 
 import org.junit.contrib.java.lang.system.SystemOutRule;
 
@@ -35,7 +39,34 @@ public class MessageTests {
     }
 
     @Test
-    public void shouldDisplayErrorWhenChoosingUnavailableOption(){
-        message.menu()
+    public void shouldDisplayErrorWhenChoosingWrongNumber(){
+        int input = 5;
+        InputStream in = new ByteArrayInputStream(input);
+        System.setIn(in);
+        message.getChoice();
+        assertEquals("Por favor ingresa un número del 1 al 1\n", systemOutRule.getLog());
+    }
+
+
+    @Test{
+        String input = "Blabla";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        message.getChoice();
+        assertEquals(IllegalArgumentException.class);
+    }
+
+    @Test
+    public void shouldShowBookListWhenChoosingOptionOne(){
+        List<Book> availableBooks = new ArrayList<Book>();
+        Book book = new Book(1, "Maleficio", "Claudia Andrade", 1994, true);
+        Book book2 = new Book(2, "Calíope", "J.L Flores", 1970, true);
+        availableBooks.add(book);
+        availableBooks.add(book2);
+        String input = "1";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        message.getChoice();
+        assertEquals(availableBooks.toString() + "\n", systemOutRule.getLog());
     }
 }
