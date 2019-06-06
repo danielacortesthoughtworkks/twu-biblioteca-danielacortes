@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="528d1500-1179-4b44-b900-e9cbd8c92c9b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/objects/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/objects/Message.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/objects/MessageTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/biblioteca/com/twu/objects/MessageTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/objects/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/objects/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/objects/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/objects/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/twu/objects/MessageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/objects/MessageTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -73,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/twu/objects/MessageTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="52" column="29" lean-forward="true" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="67" />
+            <state relative-caret-position="335">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1634#1640#0" expanded="true" />
@@ -202,7 +199,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MessageTests.shouldDisplayErrorWhenChoosingUnavailableOption">
+  <component name="RunManager" selected="JUnit.MessageTests.shouldDisplayErrorWhenChoosingWrongNumber">
     <configuration name="MessageTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
@@ -234,6 +231,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MessageTests.shouldDisplayErrorWhenChoosingWrongNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.objects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.objects" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.objects.MessageTests" />
+      <option name="METHOD_NAME" value="shouldDisplayErrorWhenChoosingWrongNumber" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MessageTests.shouldPrintMenuinConsole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
@@ -245,22 +258,6 @@
       <option name="PACKAGE_NAME" value="com.twu.objects" />
       <option name="MAIN_CLASS_NAME" value="com.twu.objects.MessageTests" />
       <option name="METHOD_NAME" value="shouldPrintMenuinConsole" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MessageTests.shouldPrintWelcomeMessageInConsole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="biblioteca" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.twu.objects.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.twu.objects" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.objects.MessageTests" />
-      <option name="METHOD_NAME" value="shouldPrintWelcomeMessageInConsole" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -284,11 +281,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MessageTests.shouldDisplayErrorWhenChoosingWrongNumber" />
         <item itemvalue="JUnit.MessageTests.shouldDisplayErrorWhenChoosingUnavailableOption" />
         <item itemvalue="JUnit.MessageTests (1)" />
         <item itemvalue="JUnit.MessageTests.shouldShowBookListWhenChoosingThatOption" />
         <item itemvalue="JUnit.MessageTests.shouldPrintMenuinConsole" />
-        <item itemvalue="JUnit.MessageTests.shouldPrintWelcomeMessageInConsole" />
       </list>
     </recent_temporary>
   </component>
@@ -306,9 +303,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MessageTests_shouldShowBookListWhenChoosingThatOption - 2019.06.06 at 17h 08m 17s.xml">
-      <configuration name="MessageTests.shouldShowBookListWhenChoosingThatOption" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="MessageTests_shouldShowBookListWhenChoosingThatOption - 2019.06.06 at 17h 12m 39s.xml">
       <configuration name="MessageTests.shouldShowBookListWhenChoosingThatOption" configurationId="JUnit" />
     </history-entry>
@@ -335,6 +329,9 @@
     </history-entry>
     <history-entry file="MessageTests_shouldDisplayErrorWhenChoosingUnavailableOption - 2019.06.06 at 17h 18m 33s.xml">
       <configuration name="MessageTests.shouldDisplayErrorWhenChoosingUnavailableOption" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MessageTests_shouldDisplayErrorWhenChoosingWrongNumber - 2019.06.06 at 17h 44m 46s.xml">
+      <configuration name="MessageTests.shouldDisplayErrorWhenChoosingWrongNumber" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -383,15 +380,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/com/twu/objects/MessageTests.java</url>
-          <line>60</line>
+          <line>58</line>
           <properties />
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/test/com/twu/objects/MessageTests.java</url>
-          <line>50</line>
-          <properties />
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -453,8 +444,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/objects/MessageTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="52" column="29" lean-forward="true" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="67" />
+        <state relative-caret-position="335">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1634#1640#0" expanded="true" />

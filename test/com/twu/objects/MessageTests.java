@@ -1,4 +1,5 @@
 package com.twu.objects;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.Rule;
 import static org.junit.Assert.assertEquals;
@@ -7,6 +8,7 @@ import java.io.InputStream;
 import org.junit.Before;
 import java.util.List;
 import java.util.ArrayList;
+import org.junit.Ignore;
 
 import org.junit.contrib.java.lang.system.SystemOutRule;
 
@@ -41,20 +43,16 @@ public class MessageTests {
     @Test
     public void shouldDisplayErrorWhenChoosingWrongNumber(){
         int input = 5;
-        InputStream in = new ByteArrayInputStream(input);
+        String inputString = Integer.toString(input);
+        ByteArrayInputStream in = new ByteArrayInputStream(inputString.getBytes());
         System.setIn(in);
         message.getChoice();
         assertEquals("Por favor ingresa un número del 1 al 1\n", systemOutRule.getLog());
     }
 
 
-    @Test{
-        String input = "Blabla";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-        message.getChoice();
-        assertEquals(IllegalArgumentException.class);
-    }
+
+
 
     @Test
     public void shouldShowBookListWhenChoosingOptionOne(){
