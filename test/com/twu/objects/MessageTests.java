@@ -58,7 +58,7 @@ public class MessageTests {
         System.setIn(in);
         message.getChoice();
     }
-    
+
 
     @Test
     public void shouldShowBookListWhenChoosingOptionOne(){

@@ -18,7 +18,9 @@ public class Book {
         this.author = author;
         this.publicationYear = publicationYear;
         this.available = available;
-        availableBooks.add(this);
+        if(this.available == true) {
+            availableBooks.add(this);
+        }
     }
 
     public static void showAvailableBooks(){
