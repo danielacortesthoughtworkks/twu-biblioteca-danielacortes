@@ -1,5 +1,4 @@
 package com.twu.objects;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.Rule;
 import static org.junit.Assert.assertEquals;
@@ -8,7 +7,8 @@ import java.io.InputStream;
 import org.junit.Before;
 import java.util.List;
 import java.util.ArrayList;
-import org.junit.Ignore;
+import java.util.InputMismatchException;
+
 
 import org.junit.contrib.java.lang.system.SystemOutRule;
 
@@ -51,8 +51,14 @@ public class MessageTests {
     }
 
 
-
-
+    @Test(expected = InputMismatchException.class)
+    public void shouldDisplayErrorWhenChoosingWrongType(){
+        String input = "Blabla";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        message.getChoice();
+    }
+    
 
     @Test
     public void shouldShowBookListWhenChoosingOptionOne(){
