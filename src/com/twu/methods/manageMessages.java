@@ -1,10 +1,10 @@
-package com.twu.objects;
+package com.twu.methods;
 import com.twu.methods.manageBooks;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Message {
+public class manageMessages {
 
     public final void welcome() {
         String welcomeMessage = "Welcome to Biblioteca, your one-stop-shop for great book titles in Bangalore!";

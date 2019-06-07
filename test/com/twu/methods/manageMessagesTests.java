@@ -1,4 +1,5 @@
-package com.twu.objects;
+package com.twu.methods;
+import com.twu.objects.Book;
 import org.junit.Test;
 import org.junit.Rule;
 import static org.junit.Assert.assertEquals;
@@ -13,29 +14,29 @@ import java.util.InputMismatchException;
 import org.junit.contrib.java.lang.system.SystemOutRule;
 
 
-public class MessageTests {
+public class manageMessagesTests {
 
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
 
-    private Message message;
+    private manageMessages manageMessages;
 
     @Before
     public void createMessage(){
         systemOutRule.clearLog();
-        message = new Message();
+        manageMessages = new manageMessages();
     }
 
     @Test
     public void shouldPrintWelcomeMessageInConsole(){
-        message.welcome();
+        manageMessages.welcome();
         assertEquals("Welcome to Biblioteca, your one-stop-shop for great book titles in Bangalore!\n", systemOutRule.getLog());
 
     }
 
     @Test
     public void shouldPrintMenuinConsole(){
-        message.menu();
+        manageMessages.menu();
         assertEquals("Please choose one of the following options:\n" +
                 "1: List of available books\n", systemOutRule.getLog());
     }
@@ -46,7 +47,7 @@ public class MessageTests {
         String inputString = Integer.toString(input);
         ByteArrayInputStream in = new ByteArrayInputStream(inputString.getBytes());
         System.setIn(in);
-        message.getChoice();
+        manageMessages.getChoice();
         assertEquals("Please select a valid option!\n", systemOutRule.getLog());
     }
 
@@ -56,7 +57,7 @@ public class MessageTests {
         String input = "Blabla";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        message.getChoice();
+        manageMessages.getChoice();
     }
 
 
@@ -70,7 +71,7 @@ public class MessageTests {
         String input = "1";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        message.getChoice();
+        manageMessages.getChoice();
         assertEquals(availableBooks.toString() + "\n", systemOutRule.getLog());
     }
 }
