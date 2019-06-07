@@ -2,8 +2,19 @@ package com.twu.methods;
 
 import com.twu.objects.Book;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class manageBooks {
-    private List<Book> bookList;
+
+
+    private static ArrayList<Book> availableBooks = new ArrayList<Book>();
+
+    public static void addBookToList(Book book){
+        availableBooks.add(book);
+    }
+
+    public static void showAvailableBooks(){
+        System.out.println(availableBooks.toString());
+    }
+
 }

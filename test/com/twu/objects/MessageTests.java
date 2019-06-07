@@ -47,7 +47,7 @@ public class MessageTests {
         ByteArrayInputStream in = new ByteArrayInputStream(inputString.getBytes());
         System.setIn(in);
         message.getChoice();
-        assertEquals("Por favor ingresa un número del 1 al 1\n", systemOutRule.getLog());
+        assertEquals("Please select a valid option!\n", systemOutRule.getLog());
     }
 
 

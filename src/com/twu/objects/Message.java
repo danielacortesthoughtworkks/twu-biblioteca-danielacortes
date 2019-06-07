@@ -1,4 +1,5 @@
 package com.twu.objects;
+import com.twu.methods.manageBooks;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -20,10 +21,10 @@ public class Message {
         Scanner scan = new Scanner(System.in);
         int choice = scan.nextInt();
         if(choice == 1 ){
-           Book.showAvailableBooks();
+           manageBooks.showAvailableBooks();
          }
         else{
-            System.out.println("Por favor ingresa un número del 1 al 1");
+            System.out.println("Please select a valid option!");
         }
     }
 }
