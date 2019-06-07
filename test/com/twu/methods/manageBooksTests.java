@@ -1,12 +1,16 @@
 package com.twu.methods;
 import com.twu.objects.Book;
+import org.hamcrest.core.Is;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.Rule;
 import org.junit.contrib.java.lang.system.SystemOutRule;
 import java.util.ArrayList;
 import java.util.List;
-
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertEquals;
 
 public class manageBooksTests {
@@ -29,5 +33,12 @@ public class manageBooksTests {
         manageBooks.showAvailableBooks();
         assertEquals(availableBooks.toString() + "\n", systemOutRule.getLog());
     }
-
+    @Ignore
+    @Test
+    public void shouldChangeIdAfterSettingUniqueID(){
+        Book book = new Book(1.0, "Maleficio", "Claudia Andrade", 1994, true);
+        manageBooks.setUniqueId(book);
+        double bookIndex = book.getIndex();
+        assertThat(bookIndex, is(not(1.0)));
+    }
 }

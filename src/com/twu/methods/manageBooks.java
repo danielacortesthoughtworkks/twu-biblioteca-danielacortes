@@ -1,8 +1,8 @@
 package com.twu.methods;
-
 import com.twu.objects.Book;
-
 import java.util.ArrayList;
+import java.util.UUID;
+import java.math.BigInteger;
 
 public class manageBooks {
 
@@ -14,7 +14,19 @@ public class manageBooks {
     }
 
     public static void showAvailableBooks(){
-        System.out.println(availableBooks.toString());
+        for (Book book : availableBooks) {
+            String title = book.getTitle();
+            String author = book.getAuthor();
+            int year = book.getPublicationYear();
+            System.out.println(title + "|" + author + "|" + year);
+        }
     }
 
+    public static double setUniqueId(Book book){
+        String uniqueUUID1 = UUID.randomUUID().toString();
+        BigInteger bigId = new BigInteger(uniqueUUID1, 16);
+        double newIndex = Math.abs(bigId.doubleValue());
+        book.setIndex(newIndex);
+        return newIndex;
+    }
 }
