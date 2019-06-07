@@ -11,13 +11,24 @@ public class manageMessages {
         System.out.println(welcomeMessage);
     }
 
-    public final void menu() {
+    public final void mainMenu() {
         String menuMessage = "Please choose one of the following options:\n" +
-                                "1: List of available books";
+                                "1: Books";
         System.out.println(menuMessage);
     }
 
-    public static void getChoice() {
+    public static void getMainMenuChoice() {
+        Scanner scan = new Scanner(System.in);
+        int choice = scan.nextInt();
+        if(choice == 1 ){
+            showBookSubMenu();
+        }
+        else{
+            System.out.println("Please select a valid option!");
+        }
+    }
+
+    public static void getBookSubMenuChoice() {
         Scanner scan = new Scanner(System.in);
         int choice = scan.nextInt();
         if(choice == 1 ){
@@ -26,5 +37,12 @@ public class manageMessages {
         else{
             System.out.println("Please select a valid option!");
         }
+    }
+
+    public static void showBookSubMenu(){
+        String menuMessage = "Please choose one of the following options:\n" +
+                "1: Book List";
+        System.out.println(menuMessage);
+
     }
 }
