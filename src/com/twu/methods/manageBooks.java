@@ -49,10 +49,10 @@ public class manageBooks {
             }
 
             if (checkOutSuccess == true) {
-                manageMessages.checkOutSuccess();
+                manageMessages.bookCheckOutSuccess();
                 checkOutSuccess = false;
             } else {
-                manageMessages.checkOutError();
+                manageMessages.bookCheckOutError();
             }
         }
     }
@@ -69,10 +69,10 @@ public class manageBooks {
                 }
             }
             if (returnSuccess == true) {
-                manageMessages.returnSuccess();
+                manageMessages.bookReturnSuccess();
                 returnSuccess = false;
             } else {
-                manageMessages.returnError();
+                manageMessages.bookReturnError();
             }
         }
     }

@@ -19,10 +19,6 @@ public class Book {
         manageBooks.addBookToList(this);
     }
 
-    public double getIndex() {
-        return index;
-    }
-
     public String getTitle() {
         return title;
     }

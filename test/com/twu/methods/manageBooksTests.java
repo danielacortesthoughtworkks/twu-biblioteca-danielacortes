@@ -56,7 +56,8 @@ public class manageBooksTests {
         System.setIn(in);
         manageBooks.checkOutBook();
         manageBooks.showAvailableBooks();
-        assertEquals("Thank you! Enjoy the book!\n" + title2 + "|" + author2 + "|" + year2 + "\n", systemOutRule.getLog());
+        assertEquals("Thank you! Enjoy the book!\n" +  "Please choose one of the following options:\n" +
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + title2 + "|" + author2 + "|" + year2 + "\n", systemOutRule.getLog());
     }
 
     @Test
@@ -85,6 +86,7 @@ public class manageBooksTests {
         System.setIn(in);
         manageBooks.returnBook();
         manageBooks.showAvailableBooks();
-        assertEquals("Thank you for returning the book\n" + title + "|" + author + "|" + year + "\n" + title2 + "|" + author2 + "|" + year2 + "\n", systemOutRule.getLog());
+        assertEquals("Thank you for returning the book\n" + "Please choose one of the following options:\n" +
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + title + "|" + author + "|" + year + "\n" + title2 + "|" + author2 + "|" + year2 + "\n", systemOutRule.getLog());
     }
 }
