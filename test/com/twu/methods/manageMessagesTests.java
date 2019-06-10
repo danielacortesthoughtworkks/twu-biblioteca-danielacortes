@@ -50,17 +50,16 @@ public class manageMessagesTests {
     }
 
     @Test
-    public void mainMenuShouldExitSystemWhenChoosingOptionB(){
-        String input = "B";
+    public void mainMenuShouldExitSystemWhenChoosingOptionB() {
+        String input = "D";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageMessages.getMainMenuChoice();
         exit.expectSystemExitWithStatus(0);
-        System.exit(0);
     }
 
     @Test
-    public void mainMenuShouldDisplayErrorWhenChoosingWrongNumber(){
+    public void mainMenuShouldDisplayErrorWhenChoosingWrongOption(){
         String input = "X";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -69,7 +68,7 @@ public class manageMessagesTests {
     }
 
     @Test
-    public void bookSubMenuShouldDisplayBookListWhenChoosingOptionOne(){
+    public void bookSubMenuShouldDisplayBookListWhenChoosingOptionA(){
         Book book = new Book(1, "Maleficio", "Claudia Andrade", 1994, true);
         Book book2 = new Book(2, "Calíope", "J.L Flores", 1970, true);
         String title = book.getTitle();
@@ -87,7 +86,7 @@ public class manageMessagesTests {
     }
 
     @Test
-    public void bookSubMenuShouldAskForCheckOutBookTitleWhenChoosingOptionTwo(){
+    public void bookSubMenuShouldAskForCheckOutBookTitleWhenChoosingOptionB(){
         String input = "B";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -96,7 +95,7 @@ public class manageMessagesTests {
     }
 
     @Test
-    public void bookSubMenuShouldAskForReturnBookTitleWhenChoosingOptionThree(){
+    public void bookSubMenuShouldAskForReturnBookTitleWhenChoosingOptionC(){
         String input = "C";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -105,7 +104,7 @@ public class manageMessagesTests {
     }
 
     @Test
-    public void subMenuShouldDisplayErrorWhenChoosingWrongNumber(){
+    public void subMenuShouldDisplayErrorWhenChoosingWrongOption(){
         String input = "L";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -114,13 +113,12 @@ public class manageMessagesTests {
     }
 
     @Test
-    public void bookSubMenuShouldExitSystemWhenChoosingOptionFour() {
+    public void bookSubMenuShouldExitSystemWhenChoosingOptionD() {
         String input = "D";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageMessages.getMainMenuChoice();
         exit.expectSystemExitWithStatus(0);
-        System.exit(0);
     }
 
     @Test
@@ -130,7 +128,8 @@ public class manageMessagesTests {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageBooks.checkOutBook();
-        assertEquals("Thank you! Enjoy the book!\n", systemOutRule.getLog());
+        assertEquals("Thank you! Enjoy the book!\n" + "Please choose one of the following options:\n" +
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
     }
 
     @Test
@@ -140,7 +139,8 @@ public class manageMessagesTests {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageBooks.checkOutBook();
-        assertEquals("Sorry, that book is not available!\n", systemOutRule.getLog());
+        assertEquals("Sorry, that book is not available!\n" + "Please choose one of the following options:\n" +
+        "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
     }
 
     @Test
@@ -150,7 +150,8 @@ public class manageMessagesTests {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageBooks.returnBook();
-        assertEquals("Thank you for returning the book\n", systemOutRule.getLog());
+        assertEquals("Thank you for returning the book\n" + "Please choose one of the following options:\n" +
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
     }
 
     @Test
@@ -160,6 +161,7 @@ public class manageMessagesTests {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageBooks.returnBook();
-        assertEquals("That is not a valid book to return\n", systemOutRule.getLog());
+        assertEquals("That is not a valid book to return\n" + "Please choose one of the following options:\n" +
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
     }
 }

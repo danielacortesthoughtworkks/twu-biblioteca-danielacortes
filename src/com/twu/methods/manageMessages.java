@@ -4,7 +4,7 @@ public class manageMessages {
 
     enum menuOptions
     {
-        A, B, C, D;
+        A, B, C, D, OTHER;
     }
 
     public static void welcome() {
@@ -22,13 +22,10 @@ public class manageMessages {
         Scanner scanMainChoice = new Scanner(System.in);
         while(scanMainChoice.hasNextLine()) {
             String mainChoice = scanMainChoice.nextLine();
-            menuOptions option = menuOptions.valueOf(mainChoice.toUpperCase());
-
-            while (option != menuOptions.A && option != menuOptions.B) {
-                System.out.println("Please select a valid option!");
-                getMainMenuChoice();
+            if(!mainChoice.equals("A") && !mainChoice.equals("B")){
+                mainChoice = "OTHER";
             }
-
+            menuOptions option = menuOptions.valueOf(mainChoice.toUpperCase());
             switch (option) {
                 case A:
                     showBookSubMenu();
@@ -36,6 +33,10 @@ public class manageMessages {
 
                 case B:
                     System.exit(0);
+
+                case OTHER:
+                    System.out.println("Please select a valid option!");
+                    getMainMenuChoice();
             }
         }
 
@@ -52,12 +53,11 @@ public class manageMessages {
         Scanner scanChoice = new Scanner(System.in);
         while(scanChoice.hasNextLine()) {
             String choice = scanChoice.nextLine();
+            if(!choice.equals("A") && !choice.equals("B") && !choice.equals("C") && !choice.equals("D")){
+                choice = "OTHER";
+            }
             menuOptions option = menuOptions.valueOf(choice.toUpperCase());
 
-        while(option != menuOptions.A && option != menuOptions.B && option != menuOptions.C && option != menuOptions.D){
-            System.out.println("Please select a valid option!");
-            getBookSubMenuChoice();
-        }
 
         switch(option){
             case A:
@@ -75,8 +75,10 @@ public class manageMessages {
 
             case D:
                 System.exit(0);
+                break;
 
-
+                default:
+                    System.out.println("Please select a valid option!");
         }
 
         }
