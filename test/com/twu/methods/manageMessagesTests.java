@@ -36,22 +36,22 @@ public class manageMessagesTests {
     public void shouldPrintMainMenuinConsole(){
         manageMessages.mainMenu();
         assertEquals("Please choose one of the following options:\n" +
-                "1: Books\n" + "2: Exit\n", systemOutRule.getLog());
+                "A: Books\n" + "B: Exit\n", systemOutRule.getLog());
     }
 
     @Test
-    public void mainMenuShouldDisplayBookSubMenuWhenChoosingOptionOne(){
-        String input = "1";
+    public void mainMenuShouldDisplayBookSubMenuWhenChoosingOptionA(){
+        String input = "A";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageMessages.getMainMenuChoice();
         assertEquals("Please choose one of the following options:\n" +
-                "1: Book List\n" + "2: Check out Book\n" + "3: Return Book\n" + "4: Exit\n", systemOutRule.getLog());
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
     }
 
     @Test
-    public void mainMenuShouldExitSystemWhenChoosingOptionTwo(){
-        String input = "2";
+    public void mainMenuShouldExitSystemWhenChoosingOptionB(){
+        String input = "B";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageMessages.getMainMenuChoice();
@@ -61,7 +61,7 @@ public class manageMessagesTests {
 
     @Test
     public void mainMenuShouldDisplayErrorWhenChoosingWrongNumber(){
-        String input = "5";
+        String input = "X";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageMessages.getMainMenuChoice();
@@ -78,25 +78,26 @@ public class manageMessagesTests {
         String title2 = book2.getTitle();
         String author2 = book2.getAuthor();
         int year2 = book2.getPublicationYear();
-        String input = "1";
+        String input = "A";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageMessages.getBookSubMenuChoice();
-        assertEquals(title + "|" + author + "|" + year + "\n" + title2 + "|" + author2 + "|" + year2 + "\n", systemOutRule.getLog());
+        assertEquals(title + "|" + author + "|" + year + "\n" + title2 + "|" + author2 + "|" + year2 + "\n" + "Please choose one of the following options:\n" +
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
     }
 
     @Test
     public void bookSubMenuShouldAskForCheckOutBookTitleWhenChoosingOptionTwo(){
-        String input = "2";
+        String input = "B";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageMessages.getBookSubMenuChoice();
-        assertEquals("What book would you like to check out?\nThank you! Enjoy the book!\n", systemOutRule.getLog());
+        assertEquals("What book would you like to check out?\n", systemOutRule.getLog());
     }
 
     @Test
     public void bookSubMenuShouldAskForReturnBookTitleWhenChoosingOptionThree(){
-        String input = "3";
+        String input = "C";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageMessages.getBookSubMenuChoice();
@@ -105,7 +106,7 @@ public class manageMessagesTests {
 
     @Test
     public void subMenuShouldDisplayErrorWhenChoosingWrongNumber(){
-        String input = "5";
+        String input = "L";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageMessages.getBookSubMenuChoice();
@@ -114,7 +115,7 @@ public class manageMessagesTests {
 
     @Test
     public void bookSubMenuShouldExitSystemWhenChoosingOptionFour() {
-        String input = "4";
+        String input = "D";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageMessages.getMainMenuChoice();
@@ -128,7 +129,7 @@ public class manageMessagesTests {
         String input = "Maleficio";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageBooks.checkOutBook("Maleficio");
+        manageBooks.checkOutBook();
         assertEquals("Thank you! Enjoy the book!\n", systemOutRule.getLog());
     }
 
@@ -138,7 +139,7 @@ public class manageMessagesTests {
         String input = "Juanito";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageBooks.checkOutBook("Juanito");
+        manageBooks.checkOutBook();
         assertEquals("Sorry, that book is not available!\n", systemOutRule.getLog());
     }
 
@@ -148,7 +149,7 @@ public class manageMessagesTests {
         String input = "Maleficio";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageBooks.returnBook("Maleficio");
+        manageBooks.returnBook();
         assertEquals("Thank you for returning the book\n", systemOutRule.getLog());
     }
 
@@ -158,7 +159,7 @@ public class manageMessagesTests {
         String input = "Juanito";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageBooks.returnBook("Juanito");
+        manageBooks.returnBook();
         assertEquals("That is not a valid book to return\n", systemOutRule.getLog());
     }
 }

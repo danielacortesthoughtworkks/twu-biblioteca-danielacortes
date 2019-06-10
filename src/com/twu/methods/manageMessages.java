@@ -2,6 +2,11 @@ package com.twu.methods;
 import java.util.Scanner;
 public class manageMessages {
 
+    enum menuOptions
+    {
+        A, B, C, D;
+    }
+
     public static void welcome() {
         String welcomeMessage = "Welcome to Biblioteca, your one-stop-shop for great book titles in Bangalore!";
         System.out.println(welcomeMessage);
@@ -9,89 +14,92 @@ public class manageMessages {
 
     public static void mainMenu() {
         String menuMessage = "Please choose one of the following options:\n" +
-                                "1: Books\n" + "2:Exit";
+                                "A: Books\n" + "B: Exit";
         System.out.println(menuMessage);
     }
 
     public static void getMainMenuChoice() {
         Scanner scanMainChoice = new Scanner(System.in);
-        if(scanMainChoice.hasNextInt());
-        int mainChoice = scanMainChoice.nextInt();
+        while(scanMainChoice.hasNextLine()) {
+            String mainChoice = scanMainChoice.nextLine();
+            menuOptions option = menuOptions.valueOf(mainChoice.toUpperCase());
 
-        while(mainChoice < 1 || mainChoice > 2){
-            System.out.println("Please select a valid option!");
-           getMainMenuChoice();
-        }
+            while (option != menuOptions.A && option != menuOptions.B) {
+                System.out.println("Please select a valid option!");
+                getMainMenuChoice();
+            }
 
-        switch(mainChoice) {
-            case 1:
-                showBookSubMenu();
-                break;
+            switch (option) {
+                case A:
+                    showBookSubMenu();
+                    break;
 
-            case 2:
-                System.exit(0);
+                case B:
+                    System.exit(0);
+            }
         }
 
     }
 
     public static void showBookSubMenu(){
         String menuMessage = "Please choose one of the following options:\n" +
-                "1: Book List\n" + "2: Check out Book\n" + "3: Return book\n" + "4: Exit";
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit";
         System.out.println(menuMessage);
         getBookSubMenuChoice();
     }
 
     public static void getBookSubMenuChoice() {
         Scanner scanChoice = new Scanner(System.in);
-        if(scanChoice.hasNextInt());
-           int choice = scanChoice.nextInt();
+        while(scanChoice.hasNextLine()) {
+            String choice = scanChoice.nextLine();
+            menuOptions option = menuOptions.valueOf(choice.toUpperCase());
 
-        while(choice < 1 || choice > 4){
+        while(option != menuOptions.A && option != menuOptions.B && option != menuOptions.C && option != menuOptions.D){
             System.out.println("Please select a valid option!");
             getBookSubMenuChoice();
         }
 
-        switch(choice){
-            case 1:
+        switch(option){
+            case A:
                 manageBooks.showAvailableBooks();
                 showBookSubMenu();
                 break;
-            case 2:
+            case B:
                 System.out.println("What book would you like to check out?");
-                Scanner scan = new Scanner(System.in);
-                String bookChoice = scan.nextLine();
-                manageBooks.checkOutBook(bookChoice);
-                showBookSubMenu();
+                manageBooks.checkOutBook();
                 break;
-            case 3:
+            case C:
                 System.out.println("What book would you like to return?");
-                Scanner scanner = new Scanner(System.in);
-                String returnChoice = scanner.nextLine();
-                manageBooks.returnBook(returnChoice);
-                showBookSubMenu();
+                manageBooks.returnBook();
                 break;
 
-            case 4:
+            case D:
                 System.exit(0);
 
 
         }
 
         }
+    }
+
 
     public static void checkOutSuccess(){
         System.out.println("Thank you! Enjoy the book!");
+        showBookSubMenu();
     }
 
     public static void checkOutError(){
         System.out.println("Sorry, that book is not available!");
+        showBookSubMenu();
     }
 
     public static void returnSuccess(){
         System.out.println("Thank you for returning the book");
+        showBookSubMenu();
     }
 
     public static void returnError(){
         System.out.println("That is not a valid book to return");
+        showBookSubMenu();
     }
 }
