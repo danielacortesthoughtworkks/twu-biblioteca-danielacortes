@@ -22,7 +22,7 @@ public class manageMessages {
         Scanner scanMainChoice = new Scanner(System.in);
         while(scanMainChoice.hasNextLine()) {
             String mainChoice = scanMainChoice.nextLine();
-            if(!mainChoice.equals("A") && !mainChoice.equals("B")){
+            if(!mainChoice.toUpperCase().equals("A") && !mainChoice.toUpperCase().equals("B")){
                 mainChoice = "OTHER";
             }
             menuOptions option = menuOptions.valueOf(mainChoice.toUpperCase());
@@ -37,9 +37,9 @@ public class manageMessages {
                 case OTHER:
                     System.out.println("Please select a valid option!");
                     getMainMenuChoice();
+                    break;
             }
         }
-
     }
 
     public static void showBookSubMenu(){
@@ -53,34 +53,34 @@ public class manageMessages {
         Scanner scanChoice = new Scanner(System.in);
         while(scanChoice.hasNextLine()) {
             String choice = scanChoice.nextLine();
-            if(!choice.equals("A") && !choice.equals("B") && !choice.equals("C") && !choice.equals("D")){
+            if(!choice.toUpperCase().equals("A") && !choice.toUpperCase().equals("B") && !choice.toUpperCase().equals("C") && !choice.toUpperCase().equals("D")){
                 choice = "OTHER";
             }
             menuOptions option = menuOptions.valueOf(choice.toUpperCase());
 
+            switch(option){
+                case A:
+                    manageBooks.showAvailableBooks();
+                    showBookSubMenu();
+                    break;
+                case B:
+                    System.out.println("What book would you like to check out?");
+                    manageBooks.checkOutBook();
+                    break;
+                case C:
+                    System.out.println("What book would you like to return?");
+                    manageBooks.returnBook();
+                    break;
 
-        switch(option){
-            case A:
-                manageBooks.showAvailableBooks();
-                showBookSubMenu();
-                break;
-            case B:
-                System.out.println("What book would you like to check out?");
-                manageBooks.checkOutBook();
-                break;
-            case C:
-                System.out.println("What book would you like to return?");
-                manageBooks.returnBook();
-                break;
+                case D:
+                    System.exit(0);
+                    break;
 
-            case D:
-                System.exit(0);
-                break;
-
-                default:
-                    System.out.println("Please select a valid option!");
-        }
-
+                case OTHER:
+                        System.out.println("Please select a valid option!");
+                        getMainMenuChoice();
+                    break;
+            }
         }
     }
 

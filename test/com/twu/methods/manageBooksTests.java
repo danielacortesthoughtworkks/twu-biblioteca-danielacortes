@@ -2,13 +2,10 @@ package com.twu.methods;
 import com.twu.objects.Book;
 import org.junit.*;
 import org.junit.contrib.java.lang.system.SystemOutRule;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertEquals;
 
 public class manageBooksTests {
@@ -71,7 +68,6 @@ public class manageBooksTests {
         manageBooks.returnBook();
         boolean availabilty = book.getAvailable();
         assertThat(availabilty, is(true));
-
     }
 
     @Test
@@ -91,4 +87,4 @@ public class manageBooksTests {
         manageBooks.showAvailableBooks();
         assertEquals("Thank you for returning the book\n" + title + "|" + author + "|" + year + "\n" + title2 + "|" + author2 + "|" + year2 + "\n", systemOutRule.getLog());
     }
-    }
+}

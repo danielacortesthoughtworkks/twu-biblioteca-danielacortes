@@ -16,7 +16,6 @@ public class manageMessagesTests {
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
-
     private manageMessages manageMessages;
 
     @Before
@@ -29,7 +28,6 @@ public class manageMessagesTests {
     public void shouldPrintWelcomeMessageInConsole(){
         manageMessages.welcome();
         assertEquals("Welcome to Biblioteca, your one-stop-shop for great book titles in Bangalore!\n", systemOutRule.getLog());
-
     }
 
     @Test

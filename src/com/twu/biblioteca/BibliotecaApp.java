@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 import com.twu.methods.manageMessages;
 import com.twu.objects.Book;
-
 import java.util.Scanner;
 public class BibliotecaApp {
     static Scanner scan;
@@ -14,5 +13,5 @@ public class BibliotecaApp {
         manageMessages.welcome();
         manageMessages.mainMenu();
         manageMessages.getMainMenuChoice();
-        }
     }
+}
