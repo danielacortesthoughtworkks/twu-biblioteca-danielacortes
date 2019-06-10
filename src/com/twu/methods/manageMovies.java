@@ -43,8 +43,9 @@ public class manageMovies {
         while(scan.hasNextLine()) {
             String movieChoice = scan.nextLine();
             for (Movie movie: allMovies) {
+                boolean availability = movie.getAvailable();
                 String title = movie.getTitle();
-                if (title.equals(movieChoice)) {
+                if (title.equals(movieChoice) && availability == true) {
                     movie.setAvailable(false);
                     checkOutSuccess = true;
                 }
@@ -65,7 +66,8 @@ public class manageMovies {
             String returnChoice = scanner.nextLine();
             for (Movie movie: allMovies) {
                 String title = movie.getTitle();
-                if (title.equals(returnChoice)) {
+                boolean availability = movie.getAvailable();
+                if (title.equals(returnChoice) && availability == false) {
                     movie.setAvailable(true);
                     returnSuccess = true;
                 }

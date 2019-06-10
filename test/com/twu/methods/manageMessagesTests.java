@@ -240,7 +240,7 @@ public class manageMessagesTests {
         System.setIn(in);
         manageMovies.checkOutMovie();
         assertEquals("Thank you! Enjoy the movie!\n" + "Please choose one of the following options:\n" +
-                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
+                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n", systemOutRule.getLog());
     }
 
     @Test
@@ -251,7 +251,7 @@ public class manageMessagesTests {
         System.setIn(in);
         manageMovies.checkOutMovie();
         assertEquals("Sorry, that movie is not available!\n" + "Please choose one of the following options:\n" +
-                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
+                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n", systemOutRule.getLog());
     }
 
     @Test
@@ -262,7 +262,7 @@ public class manageMessagesTests {
         System.setIn(in);
         manageMovies.returnMovie();
         assertEquals("Thank you for returning the movie\n" + "Please choose one of the following options:\n" +
-                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
+                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n", systemOutRule.getLog());
     }
 
     @Test
@@ -273,6 +273,6 @@ public class manageMessagesTests {
         System.setIn(in);
         manageMovies.returnMovie();
         assertEquals("That is not a valid movie to return\n" + "Please choose one of the following options:\n" +
-                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
+                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n", systemOutRule.getLog());
     }
 }

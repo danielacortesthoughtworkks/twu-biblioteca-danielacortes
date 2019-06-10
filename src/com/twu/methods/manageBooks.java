@@ -41,8 +41,9 @@ public class manageBooks {
         while(scan.hasNextLine()) {
             String bookChoice = scan.nextLine();
             for (Book book : allBooks) {
+                boolean availability = book.getAvailable();
                 String title = book.getTitle();
-                if (title.equals(bookChoice)) {
+                if (title.equals(bookChoice) && availability == true) {
                     book.setAvailable(false);
                     checkOutSuccess = true;
                 }
@@ -62,8 +63,9 @@ public class manageBooks {
         while(scanner.hasNextLine()) {
             String returnChoice = scanner.nextLine();
             for (Book book : allBooks) {
+                boolean availability = book.getAvailable();
                 String title = book.getTitle();
-                if (title.equals(returnChoice)) {
+                if (title.equals(returnChoice) && availability == false) {
                     book.setAvailable(true);
                     returnSuccess = true;
                 }

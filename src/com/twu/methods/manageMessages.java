@@ -155,21 +155,21 @@ public class manageMessages {
 
     public static void movieCheckOutSuccess(){
         System.out.println("Thank you! Enjoy the movie!");
-        showBookSubMenu();
+        showMovieSubMenu();
     }
 
     public static void movieCheckOutError(){
         System.out.println("Sorry, that movie is not available!");
-        showBookSubMenu();
+        showMovieSubMenu();
     }
 
     public static void movieReturnSuccess(){
         System.out.println("Thank you for returning the movie");
-        showBookSubMenu();
+        showMovieSubMenu();
     }
 
     public static void movieReturnError(){
         System.out.println("That is not a valid movie to return");
-        showBookSubMenu();
+        showMovieSubMenu();
     }
 }
