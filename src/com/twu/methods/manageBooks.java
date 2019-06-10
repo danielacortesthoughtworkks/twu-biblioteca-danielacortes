@@ -6,6 +6,7 @@ import java.math.BigInteger;
 
 public class manageBooks {
     private String bookChoice;
+    private static boolean success = false;
 
     private static ArrayList<Book> allBooks = new ArrayList<Book>();
     private static ArrayList<Book> availableBooks = new ArrayList<Book>();
@@ -41,9 +42,17 @@ public class manageBooks {
             String title = book.getTitle();
             if (title.equals(bookChoice)) {
                 book.setAvailable(false);
+                success = true;
             }
         }
-        manageMessages.checkOutSuccess();
+
+        if(success == true) {
+            manageMessages.checkOutSuccess();
+            success = false;
+        }
+        else {
+            manageMessages.checkOutError();
+        }
     }
 
     public static void returnBook(String bookChoice){

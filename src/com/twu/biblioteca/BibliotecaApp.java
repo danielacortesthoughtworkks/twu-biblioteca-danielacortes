@@ -15,6 +15,4 @@ public class BibliotecaApp {
         manageMessages.mainMenu();
         manageMessages.getMainMenuChoice();
         }
-
-
     }
