@@ -133,12 +133,32 @@ public class manageMessagesTests {
     }
 
     @Test
-    public void shouldDisplayFailureMessageIfBookCheckedOut(){
+    public void shouldDisplayFailureMessageIfBookUnavailable(){
         Book book = new Book(1.0, "Maleficio", "Claudia Andrade", 1994, true);
         String input = "Juanito";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageBooks.checkOutBook("Juanito");
-        assertEquals("That book is not available!\n", systemOutRule.getLog());
+        assertEquals("Sorry, that book is not available!\n", systemOutRule.getLog());
+    }
+
+    @Test
+    public void shouldDisplaySuccessMessageIfBookReturned(){
+        Book book = new Book(1.0, "Maleficio", "Claudia Andrade", 1994, false);
+        String input = "Maleficio";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        manageBooks.returnBook("Maleficio");
+        assertEquals("Thank you for returning the book\n", systemOutRule.getLog());
+    }
+
+    @Test
+    public void shouldDisplayFailureMessageIfNotReturned(){
+        Book book = new Book(1.0, "Maleficio", "Claudia Andrade", 1994, true);
+        String input = "Juanito";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        manageBooks.returnBook("Juanito");
+        assertEquals("That is not a valid book to return\n", systemOutRule.getLog());
     }
 }

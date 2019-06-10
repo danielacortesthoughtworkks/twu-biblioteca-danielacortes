@@ -84,6 +84,14 @@ public class manageMessages {
     }
 
     public static void checkOutError(){
-        System.out.println("That book is not available!");
+        System.out.println("Sorry, that book is not available!");
+    }
+
+    public static void returnSuccess(){
+        System.out.println("Thank you for returning the book");
+    }
+
+    public static void returnError(){
+        System.out.println("That is not a valid book to return");
     }
 }

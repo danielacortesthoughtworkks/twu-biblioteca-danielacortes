@@ -1,12 +1,10 @@
 package com.twu.methods;
 import com.twu.objects.Book;
 import java.util.ArrayList;
-import java.util.UUID;
-import java.math.BigInteger;
 
 public class manageBooks {
-    private String bookChoice;
-    private static boolean success = false;
+    private static boolean checkOutSuccess = false;
+    private static boolean returnSuccess = false;
 
     private static ArrayList<Book> allBooks = new ArrayList<Book>();
     private static ArrayList<Book> availableBooks = new ArrayList<Book>();
@@ -42,13 +40,13 @@ public class manageBooks {
             String title = book.getTitle();
             if (title.equals(bookChoice)) {
                 book.setAvailable(false);
-                success = true;
+                checkOutSuccess = true;
             }
         }
 
-        if(success == true) {
+        if(checkOutSuccess == true) {
             manageMessages.checkOutSuccess();
-            success = false;
+            checkOutSuccess = false;
         }
         else {
             manageMessages.checkOutError();
@@ -60,7 +58,15 @@ public class manageBooks {
             String title = book.getTitle();
             if (title.equals(bookChoice)) {
                 book.setAvailable(true);
+                returnSuccess = true;
             }
+        }
+        if(returnSuccess == true) {
+            manageMessages.returnSuccess();
+            returnSuccess = false;
+        }
+        else {
+            manageMessages.returnError();
         }
     }
 

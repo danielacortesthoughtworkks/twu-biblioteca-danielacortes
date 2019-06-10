@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="528d1500-1179-4b44-b900-e9cbd8c92c9b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/com/twu/methods/manageBooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/methods/manageBooks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/twu/methods/manageMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/methods/manageMessages.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/twu/methods/manageMessagesTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/methods/manageMessagesTests.java" afterDir="false" />
     </list>
@@ -24,13 +25,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/twu/methods/manageMessages.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="80" selection-start-line="80" selection-end-line="80" />
+            <state relative-caret-position="380">
+              <caret line="94" column="62" selection-start-line="94" selection-start-column="62" selection-end-line="94" selection-end-column="62" />
               <folding>
                 <element signature="e#2345#2346#0" expanded="true" />
                 <element signature="e#2409#2410#0" expanded="true" />
                 <element signature="e#2551#2552#0" expanded="true" />
                 <element signature="e#2615#2616#0" expanded="true" />
+                <element signature="e#2797#2798#0" expanded="true" />
+                <element signature="e#2861#2862#0" expanded="true" />
+                <element signature="e#2902#2903#0" expanded="true" />
+                <element signature="e#2974#2975#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -39,7 +44,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/com/twu/methods/manageBooksTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
+            <state relative-caret-position="284">
               <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -53,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/twu/methods/manageMessagesTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="122" column="5" selection-start-line="122" selection-start-column="5" selection-end-line="122" selection-end-column="5" />
+            <state relative-caret-position="335">
+              <caret line="160" column="31" lean-forward="true" selection-start-line="160" selection-start-column="31" selection-end-line="160" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/twu/methods/manageBooks.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="50" column="28" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
+            <state relative-caret-position="425">
+              <caret line="67" column="14" lean-forward="true" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#477#483#0" expanded="true" />
@@ -142,8 +147,8 @@
         <option value="$PROJECT_DIR$/src/com/twu/methods/manageMessage.java" />
         <option value="$PROJECT_DIR$/src/com/twu/objects/Book.java" />
         <option value="$PROJECT_DIR$/test/com/twu/methods/manageBooksTests.java" />
-        <option value="$PROJECT_DIR$/src/com/twu/methods/manageBooks.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
+        <option value="$PROJECT_DIR$/src/com/twu/methods/manageBooks.java" />
         <option value="$PROJECT_DIR$/src/com/twu/methods/manageMessages.java" />
         <option value="$PROJECT_DIR$/test/com/twu/methods/manageMessagesTests.java" />
       </list>
@@ -278,7 +283,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.manageMessagesTests.mainMenuShouldDisplayBookSubMenuWhenChoosingOptionOne">
+  <component name="RunManager" selected="JUnit.manageMessagesTests.shouldDisplayFailureMessageIfNotReturned">
     <configuration name="BibliotecaApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaApp" />
       <module name="biblioteca" />
@@ -288,22 +293,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="manageBooksTests.shouldChangeAvailabilityOfCheckedOutBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="biblioteca" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.twu.methods.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.twu.methods" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.methods.manageBooksTests" />
-      <option name="METHOD_NAME" value="shouldChangeAvailabilityOfCheckedOutBook" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -340,7 +329,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="manageMessagesTests.shouldDisplaySuccessMessageIfBookCheckedOut" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="manageMessagesTests.shouldDisplayFailureMessageIfNotReturned" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
@@ -350,7 +339,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.twu.methods" />
       <option name="MAIN_CLASS_NAME" value="com.twu.methods.manageMessagesTests" />
-      <option name="METHOD_NAME" value="shouldDisplaySuccessMessageIfBookCheckedOut" />
+      <option name="METHOD_NAME" value="shouldDisplayFailureMessageIfNotReturned" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="manageMessagesTests.shouldDisplaySuccessMessageIfBookReturned" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.methods.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.methods" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.methods.manageMessagesTests" />
+      <option name="METHOD_NAME" value="shouldDisplaySuccessMessageIfBookReturned" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -358,11 +363,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.manageMessagesTests.mainMenuShouldDisplayBookSubMenuWhenChoosingOptionOne" />
-        <item itemvalue="JUnit.manageMessagesTests.shouldDisplayFailureMessageIfBookCheckedOut" />
-        <item itemvalue="JUnit.manageMessagesTests.shouldDisplaySuccessMessageIfBookCheckedOut" />
+        <item itemvalue="JUnit.manageMessagesTests.shouldDisplayFailureMessageIfNotReturned" />
+        <item itemvalue="JUnit.manageMessagesTests.shouldDisplaySuccessMessageIfBookReturned" />
         <item itemvalue="Application.BibliotecaApp" />
-        <item itemvalue="JUnit.manageBooksTests.shouldChangeAvailabilityOfCheckedOutBook" />
+        <item itemvalue="JUnit.manageMessagesTests.shouldDisplayFailureMessageIfBookCheckedOut" />
+        <item itemvalue="JUnit.manageMessagesTests.mainMenuShouldDisplayBookSubMenuWhenChoosingOptionOne" />
       </list>
     </recent_temporary>
   </component>
@@ -380,15 +385,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="manageBooksTests - 2019.06.09 at 22h 14m 52s.xml">
-      <configuration name="manageBooksTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="manageBooksTests - 2019.06.09 at 22h 19m 53s.xml">
-      <configuration name="manageBooksTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="manageBooksTests - 2019.06.09 at 22h 20m 07s.xml">
-      <configuration name="manageBooksTests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="manageBooksTests_shouldChangeAvailabilityOfCheckedOutBook - 2019.06.09 at 22h 22m 48s.xml">
       <configuration name="manageBooksTests.shouldChangeAvailabilityOfCheckedOutBook" configurationId="JUnit" />
     </history-entry>
@@ -409,6 +405,15 @@
     </history-entry>
     <history-entry file="manageMessagesTests_mainMenuShouldDisplayBookSubMenuWhenChoosingOptionOne - 2019.06.09 at 22h 35m 36s.xml">
       <configuration name="manageMessagesTests.mainMenuShouldDisplayBookSubMenuWhenChoosingOptionOne" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="manageMessagesTests_shouldDisplayFailureMessageIfBookCheckedOut - 2019.06.09 at 22h 47m 00s.xml">
+      <configuration name="manageMessagesTests.shouldDisplayFailureMessageIfBookCheckedOut" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="manageMessagesTests_shouldDisplaySuccessMessageIfBookReturned - 2019.06.09 at 22h 54m 59s.xml">
+      <configuration name="manageMessagesTests.shouldDisplaySuccessMessageIfBookReturned" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="manageMessagesTests_shouldDisplaySuccessMessageIfBookReturned - 2019.06.09 at 22h 55m 17s.xml">
+      <configuration name="manageMessagesTests.shouldDisplaySuccessMessageIfBookReturned" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -493,7 +498,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/com/twu/methods/manageBooks.java</url>
-          <line>39</line>
+          <line>37</line>
           <properties class="com.twu.methods.manageBooks" method="checkOutBook">
             <option name="EMULATED" value="true" />
           </properties>
@@ -558,9 +563,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/methods/manageBooksTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
+        <state relative-caret-position="284">
           <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -572,8 +587,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/methods/manageBooks.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="50" column="28" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
+        <state relative-caret-position="425">
+          <caret line="67" column="14" lean-forward="true" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#477#483#0" expanded="true" />
@@ -584,33 +599,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/methods/manageMessages.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        <state relative-caret-position="380">
+          <caret line="94" column="62" selection-start-line="94" selection-start-column="62" selection-end-line="94" selection-end-column="62" />
           <folding>
             <element signature="e#2345#2346#0" expanded="true" />
             <element signature="e#2409#2410#0" expanded="true" />
             <element signature="e#2551#2552#0" expanded="true" />
             <element signature="e#2615#2616#0" expanded="true" />
+            <element signature="e#2797#2798#0" expanded="true" />
+            <element signature="e#2861#2862#0" expanded="true" />
+            <element signature="e#2902#2903#0" expanded="true" />
+            <element signature="e#2974#2975#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/methods/manageMessagesTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="122" column="5" selection-start-line="122" selection-start-column="5" selection-end-line="122" selection-end-column="5" />
+        <state relative-caret-position="335">
+          <caret line="160" column="31" lean-forward="true" selection-start-line="160" selection-start-column="31" selection-end-line="160" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
