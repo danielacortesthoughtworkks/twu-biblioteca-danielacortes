@@ -9,7 +9,7 @@ public class manageMessages {
 
     public static void mainMenu() {
         String menuMessage = "Please choose one of the following options:\n" +
-                                "1: Books";
+                                "1: Books\n" + "2:Exit";
         System.out.println(menuMessage);
     }
 
@@ -18,7 +18,7 @@ public class manageMessages {
         if(scanMainChoice.hasNextInt());
         int mainChoice = scanMainChoice.nextInt();
 
-        while(mainChoice < 1 || mainChoice > 1){
+        while(mainChoice < 1 || mainChoice > 2){
             System.out.println("Please select a valid option!");
            getMainMenuChoice();
         }
@@ -27,13 +27,16 @@ public class manageMessages {
             case 1:
                 showBookSubMenu();
                 break;
+
+            case 2:
+                System.exit(0);
         }
 
     }
 
     public static void showBookSubMenu(){
         String menuMessage = "Please choose one of the following options:\n" +
-                "1: Book List\n" + "2: Check out Book\n" + "3: Return book";
+                "1: Book List\n" + "2: Check out Book\n" + "3: Return book\n" + "4: Exit";
         System.out.println(menuMessage);
         getBookSubMenuChoice();
     }
@@ -68,11 +71,13 @@ public class manageMessages {
                 showBookSubMenu();
                 break;
 
+            case 4:
+                System.exit(0);
+
 
         }
 
         }
-
 
     public static void checkOutSuccess(){
         System.out.println("Thank you! Enjoy the book!");
