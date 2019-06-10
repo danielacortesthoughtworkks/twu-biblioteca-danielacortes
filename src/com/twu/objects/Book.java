@@ -16,10 +16,7 @@ public class Book {
         this.author = author;
         this.publicationYear = publicationYear;
         this.available = available;
-        if(this.available == true) {
-            manageBooks method = new  manageBooks();
-            method.addBookToList(this);
-        }
+        manageBooks.addBookToList(this);
     }
 
     public double getIndex() {
@@ -38,7 +35,15 @@ public class Book {
         return publicationYear;
     }
 
+    public boolean getAvailable() {
+        return available;
+    }
+
     public void setIndex(double newIndex) {
         this.index = newIndex;
+    }
+
+    public void setAvailable(boolean availabilty) {
+        this.available = availabilty;
     }
 }

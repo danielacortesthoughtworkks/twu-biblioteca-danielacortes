@@ -1,5 +1,6 @@
 package com.twu.methods;
 import com.twu.objects.Book;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.Rule;
 import static org.junit.Assert.assertEquals;
@@ -7,9 +8,8 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import org.junit.Before;
 import java.util.InputMismatchException;
-
-
 import org.junit.contrib.java.lang.system.SystemOutRule;
+import java.lang.*;
 
 
 public class manageMessagesTests {
@@ -41,34 +41,22 @@ public class manageMessagesTests {
 
     @Test
     public void mainMenuShouldDisplayBookSubMenuWhenChoosingOptionOne(){
-        int input = 1;
-        String inputString = Integer.toString(input);
-        ByteArrayInputStream in = new ByteArrayInputStream(inputString.getBytes());
+        String input = "1";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageMessages.getMainMenuChoice();
         assertEquals("Please choose one of the following options:\n" +
-                "1: Book List\n", systemOutRule.getLog());
+                "1: Book List\n" + "2: Check out Book\n" + "3: Return Book\n", systemOutRule.getLog());
     }
 
     @Test
     public void mainMenuShouldDisplayErrorWhenChoosingWrongNumber(){
-        int input = 5;
-        String inputString = Integer.toString(input);
-        ByteArrayInputStream in = new ByteArrayInputStream(inputString.getBytes());
+        String input = "5";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageMessages.getMainMenuChoice();
         assertEquals("Please select a valid option!\n", systemOutRule.getLog());
     }
-
-
-    @Test(expected = InputMismatchException.class)
-    public void mainMenuShouldDisplayErrorWhenChoosingWrongType(){
-        String input = "Blabla";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-        manageMessages.getMainMenuChoice();
-    }
-
 
     @Test
     public void bookSubMenuShouldDisplayBookListWhenChoosingOptionOne(){
@@ -88,22 +76,41 @@ public class manageMessagesTests {
     }
 
     @Test
+    public void bookSubMenuShouldAskForCheckOutBookTitleWhenChoosingOptionTwo(){
+        String input = "2";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        manageMessages.getBookSubMenuChoice();
+        assertEquals("What book would you like to check out?\nThank you! Enjoy the book!\n", systemOutRule.getLog());
+    }
+
+    @Test
+    public void bookSubMenuShouldAskForReturnBookTitleWhenChoosingOptionThree(){
+        String input = "3";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        manageMessages.getBookSubMenuChoice();
+        assertEquals("What book would you like to return?\n", systemOutRule.getLog());
+    }
+
+    @Test
     public void subMenuShouldDisplayErrorWhenChoosingWrongNumber(){
-        int input = 5;
-        String inputString = Integer.toString(input);
-        ByteArrayInputStream in = new ByteArrayInputStream(inputString.getBytes());
+        String input = "5";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         manageMessages.getBookSubMenuChoice();
         assertEquals("Please select a valid option!\n", systemOutRule.getLog());
     }
 
 
-    @Test(expected = InputMismatchException.class)
-    public void subMenuShouldDisplayErrorWhenChoosingWrongType(){
-        String input = "Blabla";
+    @Test
+    public void shouldDisplaySuccessMessageIfBookCheckedOut(){
+        Book book = new Book(1.0, "Maleficio", "Claudia Andrade", 1994, true);
+        String input = "Maleficio";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageMessages.getBookSubMenuChoice();
+        manageBooks.checkOutBook("Maleficio");
+        assertEquals("Thank you! Enjoy the book!\n", systemOutRule.getLog());
     }
 
 }

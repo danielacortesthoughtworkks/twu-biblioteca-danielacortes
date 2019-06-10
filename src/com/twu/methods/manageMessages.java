@@ -1,48 +1,84 @@
 package com.twu.methods;
-import com.twu.methods.manageBooks;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-
 public class manageMessages {
 
-    public final void welcome() {
+    public static void welcome() {
         String welcomeMessage = "Welcome to Biblioteca, your one-stop-shop for great book titles in Bangalore!";
         System.out.println(welcomeMessage);
     }
 
-    public final void mainMenu() {
+    public static void mainMenu() {
         String menuMessage = "Please choose one of the following options:\n" +
                                 "1: Books";
         System.out.println(menuMessage);
     }
 
     public static void getMainMenuChoice() {
-        Scanner scan = new Scanner(System.in);
-        int choice = scan.nextInt();
-        if(choice == 1 ){
-            showBookSubMenu();
-        }
-        else{
-            System.out.println("Please select a valid option!");
-        }
-    }
+        Scanner scanMainChoice = new Scanner(System.in);
+        if(scanMainChoice.hasNextInt());
+        int mainChoice = scanMainChoice.nextInt();
 
-    public static void getBookSubMenuChoice() {
-        Scanner scan = new Scanner(System.in);
-        int choice = scan.nextInt();
-        if(choice == 1 ){
-           manageBooks.showAvailableBooks();
-         }
-        else{
+        while(mainChoice < 1 || mainChoice > 1){
             System.out.println("Please select a valid option!");
+           getMainMenuChoice();
         }
+
+        switch(mainChoice) {
+            case 1:
+                showBookSubMenu();
+                break;
+        }
+
     }
 
     public static void showBookSubMenu(){
         String menuMessage = "Please choose one of the following options:\n" +
-                "1: Book List";
+                "1: Book List\n" + "2: Check out Book\n" + "3: Return book";
         System.out.println(menuMessage);
+        getBookSubMenuChoice();
+    }
 
+    public static void getBookSubMenuChoice() {
+        Scanner scanChoice = new Scanner(System.in);
+        if(scanChoice.hasNextInt());
+           int choice = scanChoice.nextInt();
+
+        while(choice < 1 || choice > 4){
+            System.out.println("Please select a valid option!");
+            getBookSubMenuChoice();
+        }
+
+        switch(choice){
+            case 1:
+                manageBooks.showAvailableBooks();
+                showBookSubMenu();
+                break;
+            case 2:
+                System.out.println("What book would you like to check out?");
+                Scanner scan = new Scanner(System.in);
+                String bookChoice = scan.nextLine();
+                manageBooks.checkOutBook(bookChoice);
+                showBookSubMenu();
+                break;
+            case 3:
+                System.out.println("What book would you like to return?");
+                Scanner scanner = new Scanner(System.in);
+                String returnChoice = scanner.nextLine();
+                manageBooks.returnBook(returnChoice);
+                showBookSubMenu();
+                break;
+
+
+        }
+
+        }
+
+
+    public static void checkOutSuccess(){
+        System.out.println("Thank you! Enjoy the book!");
+    }
+
+    public static void checkOutError(){
+        System.out.println("That book is not available!");
     }
 }
