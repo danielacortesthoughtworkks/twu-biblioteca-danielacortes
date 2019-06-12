@@ -39,14 +39,4 @@ public class manageMovieReservationsTests {
                 "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n"
                 + title + "|" + name + "\n", systemOutRule.getLog());
     }
-
-    @Test
-    public void whenAskedForBookReservationListShouldShowTitleOfBookAndWhoCheckedItOut() {
-
-    }
-
-   @Test
-   public void userProfileShouldListCheckedOutMoviesAndBooks() {
-
-   }
 }

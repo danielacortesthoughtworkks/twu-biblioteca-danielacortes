@@ -1,5 +1,6 @@
 package com.twu.objects;
 import com.twu.methods.manageBookReservations;
+import com.twu.methods.manageMainMenu;
 
 public class bookReservation {
     private Book book;
@@ -9,6 +10,7 @@ public class bookReservation {
         this.book = book;
         this.user = user;
         manageBookReservations.addReservationToList(this);
+        manageMainMenu.addBookReservationToList(this);
     }
 
     public Book getBook() { return book;}

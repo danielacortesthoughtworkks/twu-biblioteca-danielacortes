@@ -25,7 +25,7 @@ public class manageBookReservationsTests {
     }
 
     @Test
-    public void whenAskedForBookReservationListShouldShowTitleOfMovieAndWhoCheckedItOut() {
+    public void whenAskedForBookReservationListShouldShowTitleOfBookAndWhoCheckedItOut() {
         Book book = new Book(1, "Maleficio", "Claudia Andrade", 1994, true);
         Book book2 = new Book(2, "Calíope", "J.L Flores", 1970, true);
         String title = book.getTitle();
@@ -40,13 +40,4 @@ public class manageBookReservationsTests {
                 + title + "|" + name + "\n", systemOutRule.getLog());
     }
 
-    @Test
-    public void whenAskedForBookReservationListShouldShowTitleOfBookAndWhoCheckedItOut() {
-
-    }
-
-    @Test
-    public void userProfileShouldListCheckedOutMoviesAndBooks() {
-
-    }
 }
