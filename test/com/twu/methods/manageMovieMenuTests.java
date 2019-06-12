@@ -13,19 +13,19 @@ import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 public class manageMovieMenuTests {
 
-    private User user;
-    private manageMovieMenu menu;
-    private manageMovies movieManager;
-
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
+    private User user;
+    private manageMovieMenu menu;
+    private manageMovies movieManager;
 
     @Before
     public void createMessage(){
         systemOutRule.clearLog();
-        user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com", 79298644);
+        user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com",
+                79298644);
         menu = new manageMovieMenu(user);
         movieManager = new manageMovies(user);
     }
@@ -47,7 +47,9 @@ public class manageMovieMenuTests {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         menu.getMovieSubMenuChoice();
-        assertEquals(title + "|" + director + "|" + year + "|" + rating + "\n" + title2 + "|" + director2 + "|" + year2 + "|" + rating2 + "\n" + "Please choose one of the following options:\n" +
+        assertEquals(title + "|" + director + "|" + year + "|" + rating + "\n" +
+                title2 + "|" + director2 + "|" + year2 + "|" + rating2 + "\n" +
+                "Please choose one of the following options:\n" +
                 "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n", systemOutRule.getLog());
     }
 

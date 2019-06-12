@@ -1,14 +1,16 @@
 package com.twu.methods;
+import com.twu.objects.movieReservation;
 import com.twu.objects.Movie;
 import com.twu.objects.User;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class manageMovies {
     private static boolean checkOutSuccess = false;
     private static boolean returnSuccess = false;
-    private static ArrayList<Movie> allMovies = new ArrayList<Movie>();
-    private static ArrayList<Movie> availableMovies = new ArrayList<Movie>();
+    private static List<Movie> allMovies = new ArrayList<Movie>();
+    private static  List<Movie> availableMovies = new ArrayList<Movie>();
     private static User user;
 
     public manageMovies(User user) {
@@ -51,6 +53,7 @@ public class manageMovies {
                 boolean availability = movie.getAvailable();
                 String title = movie.getTitle();
                 if (title.equals(movieChoice) && availability == true) {
+                    movieReservation reservation = new movieReservation(movie, user);
                     movie.setAvailable(false);
                     checkOutSuccess = true;
                 }

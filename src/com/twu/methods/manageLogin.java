@@ -1,6 +1,6 @@
 package com.twu.methods;
 import com.twu.objects.User;
-
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,8 +14,8 @@ public class manageLogin {
     private static String password;
     private static boolean usernameSuccess;
 
-    private static ArrayList<User> allUsers = new ArrayList<User>();
-    private static ArrayList<String> userIDs = new ArrayList<String>();
+    private static List<User> allUsers = new ArrayList<User>();
+    private static List<String> userIDs = new ArrayList<String>();
 
     public static void addUserToList(User user) {
         allUsers.add(user);

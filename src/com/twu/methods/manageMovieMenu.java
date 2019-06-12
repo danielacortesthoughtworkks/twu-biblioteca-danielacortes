@@ -22,7 +22,8 @@ public class manageMovieMenu {
         Scanner scanMovieMenuChoice = new Scanner(System.in);
         while(scanMovieMenuChoice.hasNextLine()) {
             String choiceMovieMenu = scanMovieMenuChoice.nextLine();
-            if(!choiceMovieMenu.toUpperCase().equals("A") && !choiceMovieMenu.toUpperCase().equals("B") && !choiceMovieMenu.toUpperCase().equals("C") && !choiceMovieMenu.toUpperCase().equals("D")){
+            if(!choiceMovieMenu.toUpperCase().equals("A") && !choiceMovieMenu.toUpperCase().equals("B") &&
+                    !choiceMovieMenu.toUpperCase().equals("C") && !choiceMovieMenu.toUpperCase().equals("D")){
                 choiceMovieMenu = "OTHER";
             }
             manageMessages.menuOptions option = manageMessages.menuOptions.valueOf(choiceMovieMenu.toUpperCase());

@@ -1,7 +1,9 @@
 package com.twu.methods;
 import com.twu.objects.Book;
 import com.twu.objects.User;
+import com.twu.objects.bookReservation;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,8 +11,8 @@ public class manageBooks {
     private static boolean checkOutSuccess = false;
     private static boolean returnSuccess = false;
 
-    private static ArrayList<Book> allBooks = new ArrayList<Book>();
-    private static ArrayList<Book> availableBooks = new ArrayList<Book>();
+    private static List<Book> allBooks = new ArrayList<Book>();
+    private static List<Book> availableBooks = new ArrayList<Book>();
 
     private static User user;
 
@@ -52,6 +54,7 @@ public class manageBooks {
                 boolean availability = book.getAvailable();
                 String title = book.getTitle();
                 if (title.equals(bookChoice) && availability == true) {
+                    bookReservation reservation = new bookReservation(book, user);
                     book.setAvailable(false);
                     checkOutSuccess = true;
                 }
