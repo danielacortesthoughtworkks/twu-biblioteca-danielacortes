@@ -2,6 +2,8 @@ package com.twu.biblioteca;
 import com.twu.methods.manageMessages;
 import com.twu.objects.Book;
 import com.twu.objects.Movie;
+import com.twu.methods.manageLogin;
+import com.twu.objects.User;
 
 import java.util.Scanner;
 public class BibliotecaApp {
@@ -15,8 +17,8 @@ public class BibliotecaApp {
         Movie movie = new Movie (1, "Gone with the wind", "Juanito Perez", 1994, 5, true);
         Movie movie2 = new Movie (2, "Empire Records", "Ethan Embry", 1996, 10, true);
         Movie movie3 = new Movie (1, "Hola hola", "Playa beach", 1994, 5, false);
+        User user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com", 79298644);
         manageMessages.welcome();
-        manageMessages.mainMenu();
-        manageMessages.getMainMenuChoice();
+        manageLogin.validatePassword();
     }
 }

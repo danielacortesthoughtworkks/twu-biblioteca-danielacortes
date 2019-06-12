@@ -1,5 +1,7 @@
 package com.twu.methods;
 import com.twu.objects.Book;
+import com.twu.objects.User;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,6 +11,12 @@ public class manageBooks {
 
     private static ArrayList<Book> allBooks = new ArrayList<Book>();
     private static ArrayList<Book> availableBooks = new ArrayList<Book>();
+
+    private static User user;
+
+    public manageBooks(User user) {
+        this.user = user;
+    }
 
     public static void addBookToList(Book book){
         allBooks.add(book);
@@ -50,10 +58,12 @@ public class manageBooks {
             }
 
             if (checkOutSuccess == true) {
-                manageMessages.bookCheckOutSuccess();
+                manageBookMenu menu = new manageBookMenu(user);
+                menu.bookCheckOutSuccess();
                 checkOutSuccess = false;
             } else {
-                manageMessages.bookCheckOutError();
+                manageBookMenu menu = new manageBookMenu(user);
+                menu.bookCheckOutError();
             }
         }
     }
@@ -71,10 +81,12 @@ public class manageBooks {
                 }
             }
             if (returnSuccess == true) {
-                manageMessages.bookReturnSuccess();
+                manageBookMenu menu = new manageBookMenu(user);
+                menu.bookReturnSuccess();
                 returnSuccess = false;
             } else {
-                manageMessages.bookReturnError();
+                manageBookMenu menu = new manageBookMenu(user);
+                menu.bookReturnError();
             }
         }
     }

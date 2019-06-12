@@ -1,5 +1,6 @@
 package com.twu.methods;
 import com.twu.objects.Book;
+import com.twu.objects.User;
 import org.junit.*;
 import org.junit.contrib.java.lang.system.SystemOutRule;
 import java.io.ByteArrayInputStream;
@@ -10,12 +11,19 @@ import static org.junit.Assert.assertEquals;
 
 public class manageBooksTests {
 
+    private User user;
+    private manageBookMenu menu;
+    private manageBooks bookManager;
+
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
 
     @Before
-    public void createBooks(){
+    public void clearLog(){
         systemOutRule.clearLog();
+        user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com", 79298644);
+        bookManager = new manageBooks(user);
+        menu = new manageBookMenu(user);
     }
 
     @Test
@@ -29,7 +37,7 @@ public class manageBooksTests {
         String title2 = book2.getTitle();
         String author2 = book2.getAuthor();
         int year2 = book2.getPublicationYear();
-        manageBooks.showAvailableBooks();
+        bookManager.showAvailableBooks();
         assertEquals(title + "|" + author + "|" + year + "\n" + title2 + "|" + author2 + "|" + year2 + "\n", systemOutRule.getLog());
     }
 
@@ -39,7 +47,7 @@ public class manageBooksTests {
         String input = "Maleficio";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageBooks.checkOutBook();
+        bookManager.checkOutBook();
         boolean availabilty = book.getAvailable();
         assertThat(availabilty, is(false));
     }
@@ -54,8 +62,8 @@ public class manageBooksTests {
         String input = "Maleficio";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageBooks.checkOutBook();
-        manageBooks.showAvailableBooks();
+        bookManager.checkOutBook();
+        bookManager.showAvailableBooks();
         assertEquals("Thank you! Enjoy the book!\n" +  "Please choose one of the following options:\n" +
                 "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + title2 + "|" + author2 + "|" + year2 + "\n", systemOutRule.getLog());
     }
@@ -66,7 +74,7 @@ public class manageBooksTests {
         String input = "Maleficio";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageBooks.returnBook();
+        bookManager.returnBook();
         boolean availabilty = book.getAvailable();
         assertThat(availabilty, is(true));
     }
@@ -84,8 +92,8 @@ public class manageBooksTests {
         String input = "Maleficio";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageBooks.returnBook();
-        manageBooks.showAvailableBooks();
+        bookManager.returnBook();
+        bookManager.showAvailableBooks();
         assertEquals("Thank you for returning the book\n" + "Please choose one of the following options:\n" +
                 "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + title + "|" + author + "|" + year + "\n" + title2 + "|" + author2 + "|" + year2 + "\n", systemOutRule.getLog());
     }

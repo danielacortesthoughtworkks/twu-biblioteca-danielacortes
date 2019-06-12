@@ -1,14 +1,19 @@
 package com.twu.methods;
 import com.twu.objects.Movie;
+import com.twu.objects.User;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class manageMovies {
     private static boolean checkOutSuccess = false;
     private static boolean returnSuccess = false;
-
     private static ArrayList<Movie> allMovies = new ArrayList<Movie>();
     private static ArrayList<Movie> availableMovies = new ArrayList<Movie>();
+    private static User user;
+
+    public manageMovies(User user) {
+        this.user = user;
+    }
 
     public static void addMovieToList(Movie movie){
         allMovies.add(movie);
@@ -52,10 +57,12 @@ public class manageMovies {
             }
 
             if (checkOutSuccess == true) {
-                manageMessages.movieCheckOutSuccess();
+                manageMovieMenu menu = new manageMovieMenu(user);
+                menu.movieCheckOutSuccess();
                 checkOutSuccess = false;
             } else {
-                manageMessages.movieCheckOutError();
+                manageMovieMenu menu = new manageMovieMenu(user);
+                menu.movieCheckOutError();
             }
         }
     }
@@ -73,10 +80,12 @@ public class manageMovies {
                 }
             }
             if (returnSuccess == true) {
-                manageMessages.movieReturnSuccess();
+                manageMovieMenu menu = new manageMovieMenu(user);
+                menu.movieReturnSuccess();
                 returnSuccess = false;
             } else {
-                manageMessages.movieReturnError();
+                manageMovieMenu menu = new manageMovieMenu(user);
+                menu.movieReturnError();
             }
         }
     }

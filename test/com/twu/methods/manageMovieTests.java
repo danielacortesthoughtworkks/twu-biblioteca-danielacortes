@@ -1,6 +1,7 @@
 package com.twu.methods;
 import com.twu.objects.Book;
 import com.twu.objects.Movie;
+import com.twu.objects.User;
 import org.junit.*;
 import org.junit.contrib.java.lang.system.SystemOutRule;
 import java.io.ByteArrayInputStream;
@@ -11,12 +12,19 @@ import static org.junit.Assert.assertEquals;
 
 public class manageMovieTests {
 
+    private User user;
+    private manageMovieMenu menu;
+    private manageMovies movieManager;
+
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
 
     @Before
-    public void createMovies(){
+    public void clearLog(){
         systemOutRule.clearLog();
+        user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com", 79298644);
+        menu = new manageMovieMenu(user);
+        movieManager = new manageMovies(user);
     }
 
     @Test
@@ -32,7 +40,7 @@ public class manageMovieTests {
         String author2 = movie2.getDirector();
         int year2 = movie2.getYear();
         int rating2 = movie2.getRating();
-        manageMovies.showAvailableMovies();
+        movieManager.showAvailableMovies();
         assertEquals(title + "|" + author + "|" + year + "|" + rating + "\n" + title2 + "|" + author2 + "|" + year2 + "|" + rating2 + "\n", systemOutRule.getLog());
     }
 
@@ -42,7 +50,7 @@ public class manageMovieTests {
         String input = "Gone with the wind";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageMovies.checkOutMovie();
+        movieManager.checkOutMovie();
         boolean availabilty = movie.getAvailable();
         assertThat(availabilty, is(false));
     }
@@ -58,10 +66,10 @@ public class manageMovieTests {
         String input = "Gone with the wind";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageMovies.checkOutMovie();
-        manageMovies.showAvailableMovies();
+        movieManager.checkOutMovie();
+        movieManager.showAvailableMovies();
         assertEquals("Thank you! Enjoy the movie!\n" + "Please choose one of the following options:\n" +
-                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + title2 + "|" + director2 + "|" + year2 + "|" + rating2 + "\n", systemOutRule.getLog());
+                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n" + title2 + "|" + director2 + "|" + year2 + "|" + rating2 + "\n", systemOutRule.getLog());
     }
 
     @Test
@@ -70,7 +78,7 @@ public class manageMovieTests {
         String input = "Gone with the wind";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageMovies.returnMovie();
+        movieManager.returnMovie();
         boolean availabilty = movie.getAvailable();
         assertThat(availabilty, is(true));
     }
@@ -90,9 +98,9 @@ public class manageMovieTests {
         String input = "Gone with the wind";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageMovies.returnMovie();
-        manageMovies.showAvailableMovies();
+        movieManager.returnMovie();
+        movieManager.showAvailableMovies();
         assertEquals("Thank you for returning the movie\n" + "Please choose one of the following options:\n" +
-                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n"  + title + "|" + director + "|" + year + "|" + rating + "\n" + title2 + "|" + director2 + "|" + year2 + "|" + rating2 + "\n", systemOutRule.getLog());
+                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n"  + title + "|" + director + "|" + year + "|" + rating + "\n" + title2 + "|" + director2 + "|" + year2 + "|" + rating2 + "\n", systemOutRule.getLog());
     }
 }
