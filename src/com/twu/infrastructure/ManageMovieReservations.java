@@ -1,21 +1,21 @@
-package com.twu.methods;
-import com.twu.objects.Movie;
-import com.twu.objects.User;
-import com.twu.objects.movieReservation;
+package com.twu.infrastructure;
+import com.twu.model.Movie;
+import com.twu.model.User;
+import com.twu.model.MovieReservation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class manageMovieReservations {
+public class ManageMovieReservations {
 
-    private static List<movieReservation> allMovieReservations = new ArrayList<movieReservation>();
+    private static List<MovieReservation> allMovieReservations = new ArrayList<MovieReservation>();
 
 
-    public static void addReservationToList(movieReservation reservation){
+    public static void addReservationToList(MovieReservation reservation){
         allMovieReservations.add(reservation);
     }
 
     public static void showAllMovieReservations(){
-        for (movieReservation reservation : allMovieReservations){
+        for (MovieReservation reservation : allMovieReservations){
             Movie movie = reservation.getMovie();
             User user = reservation.getUser();
             String title = movie.getTitle();

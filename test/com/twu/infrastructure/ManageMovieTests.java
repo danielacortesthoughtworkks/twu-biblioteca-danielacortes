@@ -1,6 +1,6 @@
-package com.twu.methods;
-import com.twu.objects.Movie;
-import com.twu.objects.User;
+package com.twu.infrastructure;
+import com.twu.model.Movie;
+import com.twu.model.User;
 import org.junit.*;
 import org.junit.contrib.java.lang.system.SystemOutRule;
 import java.io.ByteArrayInputStream;
@@ -9,12 +9,12 @@ import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 
-public class manageMovieTests {
+public class ManageMovieTests {
 
     private User user;
-    private manageMainMenu mainMenu;
-    private manageMovieMenu menu;
-    private manageMovies movieManager;
+    private ManageMainMenu mainMenu;
+    private ManageMovieMenu menu;
+    private ManageMovies movieManager;
 
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
@@ -23,8 +23,8 @@ public class manageMovieTests {
     public void clearLog(){
         systemOutRule.clearLog();
         user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com", 79298644);
-        menu = new manageMovieMenu(user, mainMenu);
-        movieManager = new manageMovies(user, menu);
+        menu = new ManageMovieMenu(user, mainMenu);
+        movieManager = new ManageMovies(user, menu);
     }
 
     @Test

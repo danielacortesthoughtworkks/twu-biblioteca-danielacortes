@@ -1,6 +1,6 @@
-package com.twu.methods;
-import com.twu.objects.Book;
-import com.twu.objects.User;
+package com.twu.infrastructure;
+import com.twu.model.Book;
+import com.twu.model.User;
 import org.junit.Test;
 import org.junit.Rule;
 import static org.junit.Assert.assertEquals;
@@ -11,25 +11,25 @@ import org.junit.contrib.java.lang.system.SystemOutRule;
 import java.lang.*;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
-public class manageBookMenuTests {
+public class ManageBookMenuTests {
 
 
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
     private User user;
-    private manageBookMenu menu;
-    private manageBooks bookManager;
-    private manageMainMenu mainMenu;
+    private ManageBookMenu menu;
+    private ManageBooks bookManager;
+    private ManageMainMenu mainMenu;
 
 
     @Before
     public void createMessage(){
         systemOutRule.clearLog();
         user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com", 79298644);
-        mainMenu = new manageMainMenu(user);
-        menu = new manageBookMenu(user, mainMenu);
-        bookManager = new manageBooks(user, menu);
+        mainMenu = new ManageMainMenu(user);
+        menu = new ManageBookMenu(user, mainMenu);
+        bookManager = new ManageBooks(user, menu);
 
     }
 

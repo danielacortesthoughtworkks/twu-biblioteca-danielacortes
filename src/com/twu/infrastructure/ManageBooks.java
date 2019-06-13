@@ -1,23 +1,23 @@
-package com.twu.methods;
-import com.twu.objects.Book;
-import com.twu.objects.User;
-import com.twu.objects.bookReservation;
+package com.twu.infrastructure;
+import com.twu.model.Book;
+import com.twu.model.User;
+import com.twu.model.BookReservation;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class manageBooks {
+public class ManageBooks {
     private static boolean checkOutSuccess = false;
     private static boolean returnSuccess = false;
-    private manageBookMenu menu;
+    private ManageBookMenu menu;
 
     private static List<Book> allBooks = new ArrayList<Book>();
     private static List<Book> availableBooks = new ArrayList<Book>();
 
     private User user;
 
-    public manageBooks(User user, manageBookMenu menu) {
+    public ManageBooks(User user, ManageBookMenu menu) {
         this.user = user;
         this.menu = menu;
     }
@@ -56,7 +56,7 @@ public class manageBooks {
                 boolean availability = book.getAvailable();
                 String title = book.getTitle();
                 if (title.equals(bookChoice) && availability == true) {
-                    bookReservation reservation = new bookReservation(book, user);
+                    BookReservation reservation = new BookReservation(book, user);
                     book.setAvailable(false);
                     checkOutSuccess = true;
                 }

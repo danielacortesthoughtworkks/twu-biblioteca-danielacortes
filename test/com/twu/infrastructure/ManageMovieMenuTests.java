@@ -1,6 +1,6 @@
-package com.twu.methods;
-import com.twu.objects.Movie;
-import com.twu.objects.User;
+package com.twu.infrastructure;
+import com.twu.model.Movie;
+import com.twu.model.User;
 import org.junit.Test;
 import org.junit.Rule;
 import static org.junit.Assert.assertEquals;
@@ -11,24 +11,26 @@ import org.junit.contrib.java.lang.system.SystemOutRule;
 import java.lang.*;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
-public class manageMovieMenuTests {
+public class ManageMovieMenuTests {
+
+
+    private User user;
+    private ManageMainMenu mainMenu;
+    private ManageMovieMenu menu;
+    private ManageMovies movieManager;
 
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
-    private User user;
-    private manageMainMenu mainMenu;
-    private manageMovieMenu menu;
-    private manageMovies movieManager;
 
     @Before
     public void createMessage(){
         systemOutRule.clearLog();
         user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com",
                 79298644);
-        mainMenu = new manageMainMenu(user);
-        menu = new manageMovieMenu(user, mainMenu);
-        movieManager = new manageMovies(user, menu);
+        mainMenu = new ManageMainMenu(user);
+        menu = new ManageMovieMenu(user, mainMenu);
+        movieManager = new ManageMovies(user, menu);
     }
 
     @Test

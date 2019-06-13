@@ -1,4 +1,4 @@
-package com.twu.methods;
+package com.twu.infrastructure;
 import org.junit.Test;
 import org.junit.Rule;
 import static org.junit.Assert.assertEquals;
@@ -7,18 +7,18 @@ import org.junit.contrib.java.lang.system.SystemOutRule;
 
 
 
-public class manageMessagesTests {
+public class ManageMessagesTests {
 
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
-    private manageMessages manageMessages;
+    private ManageMessages manageMessages;
 
 
 
     @Before
     public void createMessage(){
         systemOutRule.clearLog();
-        manageMessages = new manageMessages();
+        manageMessages = new ManageMessages();
     }
 
     @Test

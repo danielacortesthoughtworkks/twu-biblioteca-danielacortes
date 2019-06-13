@@ -1,20 +1,20 @@
-package com.twu.methods;
-import com.twu.objects.movieReservation;
-import com.twu.objects.Movie;
-import com.twu.objects.User;
+package com.twu.infrastructure;
+import com.twu.model.MovieReservation;
+import com.twu.model.Movie;
+import com.twu.model.User;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class manageMovies {
+public class ManageMovies {
     private static boolean checkOutSuccess = false;
     private static boolean returnSuccess = false;
     private static List<Movie> allMovies = new ArrayList<Movie>();
     private static  List<Movie> availableMovies = new ArrayList<Movie>();
     private User user;
-    private manageMovieMenu menu;
+    private ManageMovieMenu menu;
 
-    public manageMovies(User user, manageMovieMenu menu) {
+    public ManageMovies(User user, ManageMovieMenu menu) {
         this.user = user;
         this.menu = menu;
     }
@@ -56,7 +56,7 @@ public class manageMovies {
                 boolean availability = movie.getAvailable();
                 String title = movie.getTitle();
                 if (title.equals(movieChoice) && availability == true) {
-                    movieReservation reservation = new movieReservation(movie, testUser);
+                    MovieReservation reservation = new MovieReservation(movie, testUser);
                     movie.setAvailable(false);
                     checkOutSuccess = true;
                 }

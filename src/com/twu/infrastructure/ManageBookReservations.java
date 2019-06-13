@@ -1,21 +1,21 @@
-package com.twu.methods;
-import com.twu.objects.Book;
-import com.twu.objects.User;
-import com.twu.objects.bookReservation;
+package com.twu.infrastructure;
+import com.twu.model.Book;
+import com.twu.model.User;
+import com.twu.model.BookReservation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class manageBookReservations {
+public class ManageBookReservations {
 
-    private static List<bookReservation> allBookReservations = new ArrayList<bookReservation>();
+    private static List<BookReservation> allBookReservations = new ArrayList<BookReservation>();
 
 
-    public static void addReservationToList(bookReservation reservation){
+    public static void addReservationToList(BookReservation reservation){
         allBookReservations.add(reservation);
     }
 
     public static void showAllBookReservations(){
-        for (bookReservation reservation : allBookReservations){
+        for (BookReservation reservation : allBookReservations){
             Book book = reservation.getBook();
             User user = reservation.getUser();
             String title = book.getTitle();

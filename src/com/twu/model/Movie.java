@@ -1,5 +1,5 @@
-package com.twu.objects;
-import com.twu.methods.manageMovies;
+package com.twu.model;
+import com.twu.infrastructure.ManageMovies;
 
 public class Movie {
 
@@ -17,7 +17,7 @@ public class Movie {
         this.year = year;
         this.rating = rating;
         this.available = available;
-        manageMovies.addMovieToList(this);
+        ManageMovies.addMovieToList(this);
     }
 
     public String getTitle() {

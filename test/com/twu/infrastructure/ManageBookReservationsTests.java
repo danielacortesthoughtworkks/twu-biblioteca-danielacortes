@@ -1,6 +1,6 @@
-package com.twu.methods;
-import com.twu.objects.Book;
-import com.twu.objects.User;
+package com.twu.infrastructure;
+import com.twu.model.Book;
+import com.twu.model.User;
 import org.junit.*;
 import org.junit.contrib.java.lang.system.SystemOutRule;
 import java.io.ByteArrayInputStream;
@@ -8,11 +8,11 @@ import java.io.InputStream;
 import static org.junit.Assert.assertEquals;
 
 
-public class manageBookReservationsTests {
+public class ManageBookReservationsTests {
     private User user;
-    private manageBookMenu menu;
-    private manageBooks bookManager;
-    private manageMainMenu mainMenu;
+    private ManageBookMenu menu;
+    private ManageBooks bookManager;
+    private ManageMainMenu mainMenu;
 
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
@@ -21,8 +21,8 @@ public class manageBookReservationsTests {
     public void clearLog(){
         systemOutRule.clearLog();
         user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com", 79298644);
-        menu = new manageBookMenu(user, mainMenu);
-       bookManager = new manageBooks(user, menu);
+        menu = new ManageBookMenu(user, mainMenu);
+       bookManager = new ManageBooks(user, menu);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class manageBookReservationsTests {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         bookManager.checkOutBook();
-        manageBookReservations.showAllBookReservations();
+        ManageBookReservations.showAllBookReservations();
         assertEquals("Thank you! Enjoy the book!\n" + "Please choose one of the following options:\n" +
                 "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + "E: Main Menu\n"
                 + title + "|" + name + "\n", systemOutRule.getLog());

@@ -1,12 +1,12 @@
-package com.twu.methods;
-import com.twu.objects.User;
+package com.twu.infrastructure;
+import com.twu.model.User;
 import java.util.Scanner;
 
-public class manageMovieMenu {
+public class ManageMovieMenu {
     private User user;
-    private manageMainMenu menu;
+    private ManageMainMenu menu;
 
-    public manageMovieMenu(User user, manageMainMenu menu) {
+    public ManageMovieMenu(User user, ManageMainMenu menu) {
         this.user = user;
         this.menu = menu;
     }
@@ -21,7 +21,7 @@ public class manageMovieMenu {
 
     public void getMovieSubMenuChoice() {
         User testUser = user;
-        manageMovies movieManager = new manageMovies(testUser, this);
+        ManageMovies movieManager = new ManageMovies(testUser, this);
         Scanner scanMovieMenuChoice = new Scanner(System.in);
         while(scanMovieMenuChoice.hasNextLine()) {
             String choiceMovieMenu = scanMovieMenuChoice.nextLine();
@@ -30,7 +30,7 @@ public class manageMovieMenu {
             && !choiceMovieMenu.toUpperCase().equals("E")){
                 choiceMovieMenu = "OTHER";
             }
-            manageMessages.menuOptions option = manageMessages.menuOptions.valueOf(choiceMovieMenu.toUpperCase());
+            ManageMessages.menuOptions option = ManageMessages.menuOptions.valueOf(choiceMovieMenu.toUpperCase());
 
             switch(option){
                 case A:
@@ -51,7 +51,7 @@ public class manageMovieMenu {
                     break;
 
                 case E:
-                    manageMainMenu menu = new manageMainMenu(user);
+                    ManageMainMenu menu = new ManageMainMenu(user);
                     menu.mainMenu();
 
                 case OTHER:

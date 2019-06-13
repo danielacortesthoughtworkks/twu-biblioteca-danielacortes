@@ -1,9 +1,9 @@
-package com.twu.methods;
-import com.twu.objects.bookReservation;
-import com.twu.objects.movieReservation;
-import com.twu.objects.Book;
-import com.twu.objects.Movie;
-import com.twu.objects.User;
+package com.twu.infrastructure;
+import com.twu.model.BookReservation;
+import com.twu.model.MovieReservation;
+import com.twu.model.Book;
+import com.twu.model.Movie;
+import com.twu.model.User;
 import org.junit.Test;
 import org.junit.Rule;
 import static org.junit.Assert.assertEquals;
@@ -14,18 +14,18 @@ import org.junit.contrib.java.lang.system.SystemOutRule;
 import java.lang.*;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
-public class manageMainMenuTests {
+public class ManageMainMenuTests {
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
     private User user;
-    private manageMainMenu menu;
-    private manageBookMenu bookMenu;
+    private ManageMainMenu menu;
+    private ManageBookMenu bookMenu;
     private Movie movie;
     private Book book;
-    private manageMovies movieManager;
-    private manageMovieMenu movieMenu;
+    private ManageMovies movieManager;
+    private ManageMovieMenu movieMenu;
 
 
     @Before
@@ -34,10 +34,10 @@ public class manageMainMenuTests {
         movie = new Movie (1, "Gone with the wind", "Juanito Perez", 1994, 5, true);
         book = new Book(1, "Maleficio", "Claudia Andrade", 1994, true);
         user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com", 79298644);
-        menu = new manageMainMenu(user);
-        bookMenu = new manageBookMenu(user, menu);
-        movieMenu = new manageMovieMenu(user, menu);
-        movieManager = new manageMovies(user, movieMenu);
+        menu = new ManageMainMenu(user);
+        bookMenu = new ManageBookMenu(user, menu);
+        movieMenu = new ManageMovieMenu(user, menu);
+        movieManager = new ManageMovies(user, movieMenu);
     }
 
     @Test
@@ -89,8 +89,8 @@ public class manageMainMenuTests {
         int phone = user.getPhone();
         String movieTitle = movie.getTitle();
         String bookTitle = book.getTitle();
-        movieReservation movieReservation = new movieReservation(movie, user);
-        bookReservation bookReservation = new bookReservation(book, user);
+        MovieReservation movieReservation = new MovieReservation(movie, user);
+        BookReservation bookReservation = new BookReservation(book, user);
         menu.showUserDetails();
         assertEquals(name + "|" + email + "|" + phone + "\n" +
                 "These are the books you have checked out:\n" + bookTitle + "|" + "\n" +

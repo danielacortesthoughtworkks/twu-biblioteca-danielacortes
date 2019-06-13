@@ -1,5 +1,5 @@
-package com.twu.objects;
-import com.twu.methods.manageBooks;
+package com.twu.model;
+import com.twu.infrastructure.ManageBooks;
 public class Book {
 
     private double index;
@@ -16,7 +16,7 @@ public class Book {
         this.author = author;
         this.publicationYear = publicationYear;
         this.available = available;
-        manageBooks.addBookToList(this);
+        ManageBooks.addBookToList(this);
     }
 
     public String getTitle() {

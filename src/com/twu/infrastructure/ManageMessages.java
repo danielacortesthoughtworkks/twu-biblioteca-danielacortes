@@ -1,5 +1,5 @@
-package com.twu.methods;
-public class manageMessages {
+package com.twu.infrastructure;
+public class ManageMessages {
 
     enum menuOptions
     {

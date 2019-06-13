@@ -1,15 +1,15 @@
-package com.twu.methods;
+package com.twu.infrastructure;
 
-import com.twu.objects.User;
+import com.twu.model.User;
 
 import java.util.Scanner;
 
-public class manageBookMenu {
+public class ManageBookMenu {
 
     private User user;
-    private manageMainMenu menu;
+    private ManageMainMenu menu;
 
-    public manageBookMenu(User user, manageMainMenu menu) {
+    public ManageBookMenu(User user, ManageMainMenu menu) {
         this.user = user;
         this.menu = menu;
     }
@@ -23,7 +23,7 @@ public class manageBookMenu {
 
     public void getBookSubMenuChoice() {
         User testuser = user;
-        manageBooks bookManager = new manageBooks(testuser, this);
+        ManageBooks bookManager = new ManageBooks(testuser, this);
         Scanner scanChoice = new Scanner(System.in);
         while(scanChoice.hasNextLine()) {
             String choice = scanChoice.nextLine();
@@ -32,7 +32,7 @@ public class manageBookMenu {
                     && !choice.toUpperCase().equals("E")){
                 choice = "OTHER";
             }
-            manageMessages.menuOptions option = manageMessages.menuOptions.valueOf(choice.toUpperCase());
+            ManageMessages.menuOptions option = ManageMessages.menuOptions.valueOf(choice.toUpperCase());
 
             switch(option){
                 case A:

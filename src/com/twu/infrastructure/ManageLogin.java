@@ -1,11 +1,11 @@
-package com.twu.methods;
-import com.twu.objects.User;
+package com.twu.infrastructure;
+import com.twu.model.User;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class manageLogin {
+public class ManageLogin {
 
     private static String testUserId;
     private static String testPassword;
@@ -73,7 +73,7 @@ public class manageLogin {
             password = testuser.getPassword();
             if (password.equals(testPassword)) {
                 user = testuser;
-                manageMainMenu menu = new manageMainMenu(user);
+                ManageMainMenu menu = new ManageMainMenu(user);
                 menu.mainMenu();
             } else {
                 System.out.println("Wrong password!");

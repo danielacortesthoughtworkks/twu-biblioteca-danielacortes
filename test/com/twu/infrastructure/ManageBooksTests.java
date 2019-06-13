@@ -1,6 +1,6 @@
-package com.twu.methods;
-import com.twu.objects.Book;
-import com.twu.objects.User;
+package com.twu.infrastructure;
+import com.twu.model.Book;
+import com.twu.model.User;
 import org.junit.*;
 import org.junit.contrib.java.lang.system.SystemOutRule;
 import java.io.ByteArrayInputStream;
@@ -9,12 +9,12 @@ import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 
-public class manageBooksTests {
+public class ManageBooksTests {
 
     private User user;
-    private manageMainMenu mainMenu;
-    private manageBookMenu menu;
-    private manageBooks bookManager;
+    private ManageMainMenu mainMenu;
+    private ManageBookMenu menu;
+    private ManageBooks bookManager;
 
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
@@ -24,9 +24,9 @@ public class manageBooksTests {
         systemOutRule.clearLog();
         user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com",
                 79298644);
-        mainMenu = new manageMainMenu(user);
-        menu = new manageBookMenu(user, mainMenu);
-        bookManager = new manageBooks(user, menu);
+        mainMenu = new ManageMainMenu(user);
+        menu = new ManageBookMenu(user, mainMenu);
+        bookManager = new ManageBooks(user, menu);
 
     }
 

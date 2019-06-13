@@ -1,5 +1,5 @@
-package com.twu.objects;
-import com.twu.methods.manageLogin;
+package com.twu.model;
+import com.twu.infrastructure.ManageLogin;
 
 public class User {
     private String userid;
@@ -14,7 +14,7 @@ public class User {
         this.password = password;
         this.email = email;
         this.phonenumber = phonenumber;
-        manageLogin.addUserToList(this);
+        ManageLogin.addUserToList(this);
     }
 
     public String getPassword(){

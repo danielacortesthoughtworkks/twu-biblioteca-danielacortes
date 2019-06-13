@@ -1,6 +1,6 @@
-package com.twu.methods;
-import com.twu.objects.Movie;
-import com.twu.objects.User;
+package com.twu.infrastructure;
+import com.twu.model.Movie;
+import com.twu.model.User;
 import org.junit.*;
 import org.junit.contrib.java.lang.system.SystemOutRule;
 import java.io.ByteArrayInputStream;
@@ -8,11 +8,11 @@ import java.io.InputStream;
 import static org.junit.Assert.assertEquals;
 
 
-public class manageMovieReservationsTests {
+public class ManageMovieReservationsTests {
     private User user;
-    private manageMainMenu mainMenu;
-    private manageMovieMenu menu;
-    private manageMovies movieManager;
+    private ManageMainMenu mainMenu;
+    private ManageMovieMenu menu;
+    private ManageMovies movieManager;
 
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
@@ -21,9 +21,9 @@ public class manageMovieReservationsTests {
     public void clearLog(){
         systemOutRule.clearLog();
         user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com", 79298644);
-        mainMenu = new manageMainMenu(user);
-        menu = new manageMovieMenu(user, mainMenu);
-        movieManager = new manageMovies(user, menu);
+        mainMenu = new ManageMainMenu(user);
+        menu = new ManageMovieMenu(user, mainMenu);
+        movieManager = new ManageMovies(user, menu);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class manageMovieReservationsTests {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         movieManager.checkOutMovie();
-        manageMovieReservations.showAllMovieReservations();
+        ManageMovieReservations.showAllMovieReservations();
         assertEquals("Thank you! Enjoy the movie!\n" + "Please choose one of the following options:\n" +
                 "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n" + "E: Main Menu\n"
                 + title + "|" + name + "\n", systemOutRule.getLog());

@@ -1,5 +1,5 @@
-package com.twu.methods;
-import com.twu.objects.User;
+package com.twu.infrastructure;
+import com.twu.model.User;
 import org.junit.Test;
 import org.junit.Rule;
 
@@ -13,7 +13,7 @@ import org.junit.contrib.java.lang.system.SystemOutRule;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-public class manageLoginTests {
+public class ManageLoginTests {
 
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
@@ -24,13 +24,13 @@ public class manageLoginTests {
 
     @Test
     public void whenLoginShouldAskForUserId(){
-        manageLogin.requestUsername();
+        ManageLogin.requestUsername();
         assertEquals("What is your user id?\n", systemOutRule.getLog());
     }
 
     @Test
     public void whenLoginShouldAskForPassword(){
-        manageLogin.requestPassword();
+        ManageLogin.requestPassword();
         assertEquals("What is your password?\n", systemOutRule.getLog());
     }
 
@@ -39,7 +39,7 @@ public class manageLoginTests {
         String input = "4444-666666";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        assertThat(manageLogin.getTestUserId(), is("4444-666666"));
+        assertThat(ManageLogin.getTestUserId(), is("4444-666666"));
     }
 
     @Test
@@ -47,7 +47,7 @@ public class manageLoginTests {
         String password = "Hola";
         InputStream in = new ByteArrayInputStream(password.getBytes());
         System.setIn(in);
-        assertThat(manageLogin.getTestPassword(), is("Hola"));
+        assertThat(ManageLogin.getTestPassword(), is("Hola"));
     }
 
     @Test
@@ -56,8 +56,8 @@ public class manageLoginTests {
         String input = "4444-666666";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageLogin.getTestUserId();
-        manageLogin.compareUserId();
+        ManageLogin.getTestUserId();
+        ManageLogin.compareUserId();
         assertEquals("That user does not exist!\n", systemOutRule.getLog());
     }
 
@@ -67,12 +67,12 @@ public class manageLoginTests {
         String input = "5555-666666";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageLogin.getTestUserId();
+        ManageLogin.getTestUserId();
         String password = "5555-666666";
         InputStream ps = new ByteArrayInputStream(password.getBytes());
         System.setIn(ps);
-        manageLogin.getTestPassword();
-        manageLogin.comparePassword();
+        ManageLogin.getTestPassword();
+        ManageLogin.comparePassword();
         assertEquals("Wrong password!\n", systemOutRule.getLog());
     }
 
@@ -82,12 +82,12 @@ public class manageLoginTests {
         String input = "5555-666666";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        manageLogin.getTestUserId();
+        ManageLogin.getTestUserId();
         String password = "Hola";
         InputStream ps = new ByteArrayInputStream(password.getBytes());
         System.setIn(ps);
-        manageLogin.getTestPassword();
-        manageLogin.comparePassword();
+        ManageLogin.getTestPassword();
+        ManageLogin.comparePassword();
         assertEquals("Please choose one of the following options:\n" +
                 "A: Books\n" + "B: Movies\n" + "C: Profile\n" + "D: Exit\n", systemOutRule.getLog());
 

@@ -1,31 +1,31 @@
-package com.twu.methods;
-import com.twu.objects.*;
+package com.twu.infrastructure;
+import com.twu.model.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class manageMainMenu {
+public class ManageMainMenu {
 
     private User user;
     private String title;
-    private static List<bookReservation> allBookReservations = new ArrayList<bookReservation>();
-    private static List<movieReservation> allMovieReservations = new ArrayList<movieReservation>();
+    private static List<BookReservation> allBookReservations = new ArrayList<BookReservation>();
+    private static List<MovieReservation> allMovieReservations = new ArrayList<MovieReservation>();
     private static List<User> movieReservationUsers = new ArrayList<User>();
     private static List<User> bookReservationUsers = new ArrayList<User>();
 
 
-    public manageMainMenu(User user) {
+    public ManageMainMenu(User user) {
        this.user = user;
     }
 
 
 
 
-    public static void addMovieReservationToList(movieReservation reservation) {
+    public static void addMovieReservationToList(MovieReservation reservation) {
         allMovieReservations.add(reservation);
     }
 
-    public static void addBookReservationToList(bookReservation reservation){
+    public static void addBookReservationToList(BookReservation reservation){
         allBookReservations.add(reservation);
     }
 
@@ -51,15 +51,15 @@ public class manageMainMenu {
                     && !mainChoice.toUpperCase().equals("C") && !mainChoice.toUpperCase().equals("D")){
                 mainChoice = "OTHER";
             }
-            manageMessages.menuOptions option = manageMessages.menuOptions.valueOf(mainChoice.toUpperCase());
+            ManageMessages.menuOptions option = ManageMessages.menuOptions.valueOf(mainChoice.toUpperCase());
             switch (option) {
                 case A:
-                    manageBookMenu bookMenu = new manageBookMenu(testuser,this);
+                    ManageBookMenu bookMenu = new ManageBookMenu(testuser,this);
                     bookMenu.showBookSubMenu();
                     break;
 
                 case B:
-                    manageMovieMenu movieMenu = new manageMovieMenu(testuser, this);
+                    ManageMovieMenu movieMenu = new ManageMovieMenu(testuser, this);
                     movieMenu.showMovieSubMenu();
                     break;
 
@@ -93,7 +93,7 @@ public class manageMainMenu {
     }
 
     public void showMovieReservations(){
-        for (movieReservation reservation : allMovieReservations){
+        for (MovieReservation reservation : allMovieReservations){
             User reservationUser = reservation.getUser();
             movieReservationUsers.add(user);
             Movie reservationMovie = reservation.getMovie();
@@ -109,7 +109,7 @@ public class manageMainMenu {
     }
 
     public void showBookReservations(){
-        for (bookReservation reservation : allBookReservations){
+        for (BookReservation reservation : allBookReservations){
             User reservationUser = reservation.getUser();
             bookReservationUsers.add(user);
             Book reservationBook = reservation.getBook();
