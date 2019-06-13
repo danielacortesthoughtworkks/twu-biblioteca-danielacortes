@@ -17,18 +17,20 @@ public class manageBookMenuTests {
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
-
     private User user;
     private manageBookMenu menu;
     private manageBooks bookManager;
+    private manageMainMenu mainMenu;
 
 
     @Before
     public void createMessage(){
         systemOutRule.clearLog();
         user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com", 79298644);
-        bookManager = new manageBooks(user);
-        menu = new manageBookMenu(user);
+        mainMenu = new manageMainMenu(user);
+        menu = new manageBookMenu(user, mainMenu);
+        bookManager = new manageBooks(user, menu);
+
     }
 
     @Test
@@ -45,8 +47,10 @@ public class manageBookMenuTests {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         menu.getBookSubMenuChoice();
-        assertEquals(title + "|" + author + "|" + year + "\n" + title2 + "|" + author2 + "|" + year2 + "\n" + "Please choose one of the following options:\n" +
-                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
+        assertEquals(title + "|" + author + "|" + year + "\n" + title2 + "|" + author2 + "|" + year2 + "\n"
+                + "Please choose one of the following options:\n" +
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + "E: Main Menu\n"
+                , systemOutRule.getLog());
     }
 
     @Test
@@ -94,7 +98,8 @@ public class manageBookMenuTests {
         System.setIn(in);
         bookManager.checkOutBook();
         assertEquals("Thank you! Enjoy the book!\n" + "Please choose one of the following options:\n" +
-                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + "E: Main Menu\n"
+                , systemOutRule.getLog());
     }
 
     @Test
@@ -105,7 +110,8 @@ public class manageBookMenuTests {
         System.setIn(in);
         bookManager.checkOutBook();
         assertEquals("Sorry, that book is not available!\n" + "Please choose one of the following options:\n" +
-                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + "E: Main Menu\n"
+                , systemOutRule.getLog());
     }
 
     @Test
@@ -116,7 +122,8 @@ public class manageBookMenuTests {
         System.setIn(in);
         bookManager.returnBook();
         assertEquals("Thank you for returning the book\n" + "Please choose one of the following options:\n" +
-                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + "E: Main Menu\n"
+                , systemOutRule.getLog());
     }
 
     @Test
@@ -127,6 +134,7 @@ public class manageBookMenuTests {
         System.setIn(in);
         bookManager.returnBook();
         assertEquals("That is not a valid book to return\n" + "Please choose one of the following options:\n" +
-                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + "E: Main Menu\n"
+                , systemOutRule.getLog());
     }
 }

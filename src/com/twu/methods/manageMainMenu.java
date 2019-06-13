@@ -1,17 +1,13 @@
 package com.twu.methods;
 import com.twu.objects.*;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 public class manageMainMenu {
 
-    private static User user;
+    private User user;
     private String title;
-
-    private static manageBookMenu bookMenu = new manageBookMenu(user);
-    private static manageMovieMenu movieMenu = new manageMovieMenu(user);
-
     private static List<bookReservation> allBookReservations = new ArrayList<bookReservation>();
     private static List<movieReservation> allMovieReservations = new ArrayList<movieReservation>();
     private static List<User> movieReservationUsers = new ArrayList<User>();
@@ -21,6 +17,9 @@ public class manageMainMenu {
     public manageMainMenu(User user) {
        this.user = user;
     }
+
+
+
 
     public static void addMovieReservationToList(movieReservation reservation) {
         allMovieReservations.add(reservation);
@@ -43,9 +42,11 @@ public class manageMainMenu {
     }
 
     public void getMainMenuChoice() {
+        User testuser = user;
         Scanner scanMainChoice = new Scanner(System.in);
         while(scanMainChoice.hasNextLine()) {
             String mainChoice = scanMainChoice.nextLine();
+
             if(!mainChoice.toUpperCase().equals("A") && !mainChoice.toUpperCase().equals("B")
                     && !mainChoice.toUpperCase().equals("C") && !mainChoice.toUpperCase().equals("D")){
                 mainChoice = "OTHER";
@@ -53,15 +54,17 @@ public class manageMainMenu {
             manageMessages.menuOptions option = manageMessages.menuOptions.valueOf(mainChoice.toUpperCase());
             switch (option) {
                 case A:
+                    manageBookMenu bookMenu = new manageBookMenu(testuser,this);
                     bookMenu.showBookSubMenu();
                     break;
 
                 case B:
+                    manageMovieMenu movieMenu = new manageMovieMenu(testuser, this);
                     movieMenu.showMovieSubMenu();
                     break;
 
                 case C:
-                    showUserDetails();
+                    this.showUserDetails();
                     break;
 
                 case D:
@@ -77,12 +80,16 @@ public class manageMainMenu {
     }
 
     public void showUserDetails(){
-        String name = user.getName();
-        String email = user.getEmail();
-        int phone = user.getPhone();
-        System.out.println(name + "|" + email + "|" + phone);
-        showBookReservations();
-        showMovieReservations();
+        try{
+            String name = user.getName();
+            String email = user.getEmail();
+            int phone = user.getPhone();
+            System.out.println(name + "|" + email + "|" + phone);
+            showBookReservations();
+            showMovieReservations();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public void showMovieReservations(){

@@ -11,10 +11,12 @@ public class manageMovies {
     private static boolean returnSuccess = false;
     private static List<Movie> allMovies = new ArrayList<Movie>();
     private static  List<Movie> availableMovies = new ArrayList<Movie>();
-    private static User user;
+    private User user;
+    private manageMovieMenu menu;
 
-    public manageMovies(User user) {
+    public manageMovies(User user, manageMovieMenu menu) {
         this.user = user;
+        this.menu = menu;
     }
 
     public static void addMovieToList(Movie movie){
@@ -45,7 +47,8 @@ public class manageMovies {
         }
     }
 
-    public static void checkOutMovie(){
+    public void checkOutMovie(){
+        User testUser = user;
         Scanner scan = new Scanner(System.in);
         while(scan.hasNextLine()) {
             String movieChoice = scan.nextLine();
@@ -53,24 +56,22 @@ public class manageMovies {
                 boolean availability = movie.getAvailable();
                 String title = movie.getTitle();
                 if (title.equals(movieChoice) && availability == true) {
-                    movieReservation reservation = new movieReservation(movie, user);
+                    movieReservation reservation = new movieReservation(movie, testUser);
                     movie.setAvailable(false);
                     checkOutSuccess = true;
                 }
             }
 
             if (checkOutSuccess == true) {
-                manageMovieMenu menu = new manageMovieMenu(user);
                 menu.movieCheckOutSuccess();
                 checkOutSuccess = false;
             } else {
-                manageMovieMenu menu = new manageMovieMenu(user);
                 menu.movieCheckOutError();
             }
         }
     }
 
-    public static void returnMovie(){
+    public void returnMovie(){
         Scanner scanner = new Scanner(System.in);
         while(scanner.hasNextLine()) {
             String returnChoice = scanner.nextLine();
@@ -83,11 +84,9 @@ public class manageMovies {
                 }
             }
             if (returnSuccess == true) {
-                manageMovieMenu menu = new manageMovieMenu(user);
                 menu.movieReturnSuccess();
                 returnSuccess = false;
             } else {
-                manageMovieMenu menu = new manageMovieMenu(user);
                 menu.movieReturnError();
             }
         }

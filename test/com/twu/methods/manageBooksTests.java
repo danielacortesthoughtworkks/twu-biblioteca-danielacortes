@@ -12,6 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class manageBooksTests {
 
     private User user;
+    private manageMainMenu mainMenu;
     private manageBookMenu menu;
     private manageBooks bookManager;
 
@@ -21,9 +22,12 @@ public class manageBooksTests {
     @Before
     public void clearLog(){
         systemOutRule.clearLog();
-        user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com", 79298644);
-        bookManager = new manageBooks(user);
-        menu = new manageBookMenu(user);
+        user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com",
+                79298644);
+        mainMenu = new manageMainMenu(user);
+        menu = new manageBookMenu(user, mainMenu);
+        bookManager = new manageBooks(user, menu);
+
     }
 
     @Test
@@ -65,7 +69,8 @@ public class manageBooksTests {
         bookManager.checkOutBook();
         bookManager.showAvailableBooks();
         assertEquals("Thank you! Enjoy the book!\n" +  "Please choose one of the following options:\n" +
-                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + title2 + "|" + author2 + "|" + year2 + "\n", systemOutRule.getLog());
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + "E: Main Menu\n"
+                + title2 + "|" + author2 + "|" + year2 + "\n", systemOutRule.getLog());
     }
 
     @Test
@@ -95,6 +100,7 @@ public class manageBooksTests {
         bookManager.returnBook();
         bookManager.showAvailableBooks();
         assertEquals("Thank you for returning the book\n" + "Please choose one of the following options:\n" +
-                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + title + "|" + author + "|" + year + "\n" + title2 + "|" + author2 + "|" + year2 + "\n", systemOutRule.getLog());
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + "E: Main Menu\n"
+                + title + "|" + author + "|" + year + "\n" + title2 + "|" + author2 + "|" + year2 + "\n", systemOutRule.getLog());
     }
 }

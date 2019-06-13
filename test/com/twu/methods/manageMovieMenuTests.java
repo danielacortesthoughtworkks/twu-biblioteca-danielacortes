@@ -16,8 +16,8 @@ public class manageMovieMenuTests {
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
-
     private User user;
+    private manageMainMenu mainMenu;
     private manageMovieMenu menu;
     private manageMovies movieManager;
 
@@ -26,8 +26,9 @@ public class manageMovieMenuTests {
         systemOutRule.clearLog();
         user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com",
                 79298644);
-        menu = new manageMovieMenu(user);
-        movieManager = new manageMovies(user);
+        mainMenu = new manageMainMenu(user);
+        menu = new manageMovieMenu(user, mainMenu);
+        movieManager = new manageMovies(user, menu);
     }
 
     @Test
@@ -50,7 +51,8 @@ public class manageMovieMenuTests {
         assertEquals(title + "|" + director + "|" + year + "|" + rating + "\n" +
                 title2 + "|" + director2 + "|" + year2 + "|" + rating2 + "\n" +
                 "Please choose one of the following options:\n" +
-                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n", systemOutRule.getLog());
+                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n" + "E: Main Menu\n"
+                , systemOutRule.getLog());
     }
 
 
@@ -98,7 +100,8 @@ public class manageMovieMenuTests {
         System.setIn(in);
         movieManager.checkOutMovie();
         assertEquals("Thank you! Enjoy the movie!\n" + "Please choose one of the following options:\n" +
-                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n", systemOutRule.getLog());
+                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n" + "E: Main Menu\n"
+                , systemOutRule.getLog());
     }
 
     @Test
@@ -109,7 +112,8 @@ public class manageMovieMenuTests {
         System.setIn(in);
         movieManager.checkOutMovie();
         assertEquals("Sorry, that movie is not available!\n" + "Please choose one of the following options:\n" +
-                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n", systemOutRule.getLog());
+                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n" + "E: Main Menu\n"
+                , systemOutRule.getLog());
     }
 
     @Test
@@ -120,7 +124,8 @@ public class manageMovieMenuTests {
         System.setIn(in);
         movieManager.returnMovie();
         assertEquals("Thank you for returning the movie\n" + "Please choose one of the following options:\n" +
-                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n", systemOutRule.getLog());
+                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n" + "E: Main Menu\n"
+                , systemOutRule.getLog());
     }
 
     @Test
@@ -131,6 +136,7 @@ public class manageMovieMenuTests {
         System.setIn(in);
         movieManager.returnMovie();
         assertEquals("That is not a valid movie to return\n" + "Please choose one of the following options:\n" +
-                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n", systemOutRule.getLog());
+                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n" + "E: Main Menu\n"
+                , systemOutRule.getLog());
     }
 }

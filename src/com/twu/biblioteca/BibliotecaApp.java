@@ -5,10 +5,7 @@ import com.twu.objects.Movie;
 import com.twu.methods.manageLogin;
 import com.twu.objects.User;
 
-import java.util.Scanner;
 public class BibliotecaApp {
-    static Scanner scan;
-    private static int choice;
 
     public static void main(String [] args) {
         Book book = new Book(1, "Maleficio", "Claudia Andrade", 1994, true);
@@ -21,4 +18,5 @@ public class BibliotecaApp {
         manageMessages.welcome();
         manageLogin.validatePassword();
     }
+
 }

@@ -3,7 +3,7 @@ public class manageMessages {
 
     enum menuOptions
     {
-        A, B, C, D, OTHER;
+        A, B, C, D, E, OTHER;
     }
 
     public static void welcome() {

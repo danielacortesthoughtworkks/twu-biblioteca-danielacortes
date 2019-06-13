@@ -6,26 +6,30 @@ import java.util.Scanner;
 
 public class manageBookMenu {
 
-    private static User user;
-    private static manageBooks bookManager = new manageBooks(user);
+    private User user;
+    private manageMainMenu menu;
 
-    public manageBookMenu(User user) {
+    public manageBookMenu(User user, manageMainMenu menu) {
         this.user = user;
+        this.menu = menu;
     }
 
-    public static void showBookSubMenu(){
+    public void showBookSubMenu(){
         String menuMessage = "Please choose one of the following options:\n" +
-                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit";
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + "E: Main Menu";
         System.out.println(menuMessage);
         getBookSubMenuChoice();
     }
 
-    public static void getBookSubMenuChoice() {
+    public void getBookSubMenuChoice() {
+        User testuser = user;
+        manageBooks bookManager = new manageBooks(testuser, this);
         Scanner scanChoice = new Scanner(System.in);
         while(scanChoice.hasNextLine()) {
             String choice = scanChoice.nextLine();
             if(!choice.toUpperCase().equals("A") && !choice.toUpperCase().equals("B") &&
-                    !choice.toUpperCase().equals("C") && !choice.toUpperCase().equals("D")){
+                    !choice.toUpperCase().equals("C") && !choice.toUpperCase().equals("D")
+                    && !choice.toUpperCase().equals("E")){
                 choice = "OTHER";
             }
             manageMessages.menuOptions option = manageMessages.menuOptions.valueOf(choice.toUpperCase());
@@ -48,6 +52,10 @@ public class manageBookMenu {
                     System.exit(0);
                     break;
 
+                case E:
+                    menu.mainMenu();
+                    break;
+
                 case OTHER:
                     System.out.println("Please select a valid option!");
                     getBookSubMenuChoice();
@@ -56,22 +64,22 @@ public class manageBookMenu {
         }
     }
 
-    public static void bookCheckOutSuccess(){
+    public void bookCheckOutSuccess(){
         System.out.println("Thank you! Enjoy the book!");
         showBookSubMenu();
     }
 
-    public static void bookCheckOutError(){
+    public void bookCheckOutError(){
         System.out.println("Sorry, that book is not available!");
         showBookSubMenu();
     }
 
-    public static void bookReturnSuccess(){
+    public void bookReturnSuccess(){
         System.out.println("Thank you for returning the book");
         showBookSubMenu();
     }
 
-    public static void bookReturnError(){
+    public void bookReturnError(){
         System.out.println("That is not a valid book to return");
         showBookSubMenu();
     }

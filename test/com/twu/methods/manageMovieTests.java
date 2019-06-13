@@ -12,6 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class manageMovieTests {
 
     private User user;
+    private manageMainMenu mainMenu;
     private manageMovieMenu menu;
     private manageMovies movieManager;
 
@@ -22,8 +23,8 @@ public class manageMovieTests {
     public void clearLog(){
         systemOutRule.clearLog();
         user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com", 79298644);
-        menu = new manageMovieMenu(user);
-        movieManager = new manageMovies(user);
+        menu = new manageMovieMenu(user, mainMenu);
+        movieManager = new manageMovies(user, menu);
     }
 
     @Test
@@ -40,7 +41,8 @@ public class manageMovieTests {
         int year2 = movie2.getYear();
         int rating2 = movie2.getRating();
         movieManager.showAvailableMovies();
-        assertEquals(title + "|" + author + "|" + year + "|" + rating + "\n" + title2 + "|" + author2 + "|" + year2 + "|" + rating2 + "\n", systemOutRule.getLog());
+        assertEquals(title + "|" + author + "|" + year + "|" + rating + "\n" + title2 + "|" + author2 + "|"
+                + year2 + "|" + rating2 + "\n", systemOutRule.getLog());
     }
 
     @Test
@@ -68,7 +70,8 @@ public class manageMovieTests {
         movieManager.checkOutMovie();
         movieManager.showAvailableMovies();
         assertEquals("Thank you! Enjoy the movie!\n" + "Please choose one of the following options:\n" +
-                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n" + title2 + "|" + director2 + "|" + year2 + "|" + rating2 + "\n", systemOutRule.getLog());
+                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n"  + "E: Main Menu\n"
+                + title2 + "|" + director2 + "|" + year2 + "|" + rating2 + "\n", systemOutRule.getLog());
     }
 
     @Test
@@ -100,6 +103,8 @@ public class manageMovieTests {
         movieManager.returnMovie();
         movieManager.showAvailableMovies();
         assertEquals("Thank you for returning the movie\n" + "Please choose one of the following options:\n" +
-                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n"  + title + "|" + director + "|" + year + "|" + rating + "\n" + title2 + "|" + director2 + "|" + year2 + "|" + rating2 + "\n", systemOutRule.getLog());
+                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n"  + "E: Main Menu\n"
+                + title + "|" + director + "|" + year + "|" + rating + "\n" + title2 + "|" + director2 + "|"
+                + year2 + "|" + rating2 + "\n", systemOutRule.getLog());
     }
 }

@@ -69,9 +69,10 @@ public class manageLogin {
     }
 
     public static void comparePassword() {
-        for (User user : allUsers) {
-            password = user.getPassword();
+        for (User testuser : allUsers) {
+            password = testuser.getPassword();
             if (password.equals(testPassword)) {
+                user = testuser;
                 manageMainMenu menu = new manageMainMenu(user);
                 menu.mainMenu();
             } else {

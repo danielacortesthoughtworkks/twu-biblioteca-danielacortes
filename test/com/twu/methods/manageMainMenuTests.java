@@ -21,10 +21,11 @@ public class manageMainMenuTests {
 
     private User user;
     private manageMainMenu menu;
+    private manageBookMenu bookMenu;
     private Movie movie;
     private Book book;
-    private movieReservation movieReservation;
-    private bookReservation bookReservation;
+    private manageMovies movieManager;
+    private manageMovieMenu movieMenu;
 
 
     @Before
@@ -34,13 +35,16 @@ public class manageMainMenuTests {
         book = new Book(1, "Maleficio", "Claudia Andrade", 1994, true);
         user = new User("5555-666666", "Daniela Cortés", "Hola", "dustyglass@gmail.com", 79298644);
         menu = new manageMainMenu(user);
+        bookMenu = new manageBookMenu(user, menu);
+        movieMenu = new manageMovieMenu(user, menu);
+        movieManager = new manageMovies(user, movieMenu);
     }
 
     @Test
     public void shouldPrintMainMenuinConsole(){
-        menu.mainMenu();
+        menu.showMainMenu();
         assertEquals("Please choose one of the following options:\n" +
-                "A: Books\n" + "B: Movies\n" + "C: Profile\n" + "D: Exit", systemOutRule.getLog());
+                "A: Books\n" + "B: Movies\n" + "C: Profile\n" + "D: Exit\n", systemOutRule.getLog());
     }
 
     @Test
@@ -50,7 +54,8 @@ public class manageMainMenuTests {
         System.setIn(in);
         menu.getMainMenuChoice();
         assertEquals("Please choose one of the following options:\n" +
-                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n", systemOutRule.getLog());
+                "A: Book List\n" + "B: Check out Book\n" + "C: Return Book\n" + "D: Exit\n" + "E: Main Menu\n"
+                , systemOutRule.getLog());
     }
 
     @Test
@@ -60,7 +65,8 @@ public class manageMainMenuTests {
         System.setIn(in);
         menu.getMainMenuChoice();
         assertEquals("Please choose one of the following options:\n" +
-                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n", systemOutRule.getLog());
+                "A: Movie List\n" + "B: Check out Movie\n" + "C: Return Movie\n" + "D: Exit\n" + "E: Main Menu\n"
+                , systemOutRule.getLog());
     }
 
     @Test
@@ -83,8 +89,8 @@ public class manageMainMenuTests {
         int phone = user.getPhone();
         String movieTitle = movie.getTitle();
         String bookTitle = book.getTitle();
-        movieReservation = new movieReservation(movie, user);
-        bookReservation = new bookReservation(book, user);
+        movieReservation movieReservation = new movieReservation(movie, user);
+        bookReservation bookReservation = new bookReservation(book, user);
         menu.showUserDetails();
         assertEquals(name + "|" + email + "|" + phone + "\n" +
                 "These are the books you have checked out:\n" + bookTitle + "|" + "\n" +
@@ -111,5 +117,37 @@ public class manageMainMenuTests {
         assertEquals("Please select a valid option!\n", systemOutRule.getLog());
     }
 
+    @Test
+    public void shouldShowProfileInformationWhenChoosingOptionCInSecondRound(){
+        String name = user.getName();
+        String email = user.getEmail();
+        int phone = user.getPhone();
+        inputMainMenuChoice("A");
+        inputBookMenuChoice("E");
+        String input3 = "C";
+        InputStream in3 = new ByteArrayInputStream(input3.getBytes());
+        System.setIn(in3);
+        menu.getMainMenuChoice();
+        assertEquals("Please choose one of the following options:\n" + "A: Book List\n" + "B: Check out Book\n" +
+                        "C: Return Book\n" + "D: Exit\n" + "E: Main Menu\n" +
+                        "Please choose one of the following options:\n" + "A: Books\n" + "B: Movies\n" +
+                        "C: Profile\n" + "D: Exit\n" +
+                        name + "|" + email + "|" + phone + "\n", systemOutRule.getLog());
+    }
 
+
+
+    private void inputMainMenuChoice(String a) {
+        String input = a;
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        menu.getMainMenuChoice();
+    }
+
+    private void inputBookMenuChoice(String e) {
+        String input2 = e;
+        InputStream in2 = new ByteArrayInputStream(input2.getBytes());
+        System.setIn(in2);
+        bookMenu.getBookSubMenuChoice();
+    }
 }

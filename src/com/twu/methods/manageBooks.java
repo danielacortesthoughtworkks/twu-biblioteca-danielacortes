@@ -10,14 +10,16 @@ import java.util.Scanner;
 public class manageBooks {
     private static boolean checkOutSuccess = false;
     private static boolean returnSuccess = false;
+    private manageBookMenu menu;
 
     private static List<Book> allBooks = new ArrayList<Book>();
     private static List<Book> availableBooks = new ArrayList<Book>();
 
-    private static User user;
+    private User user;
 
-    public manageBooks(User user) {
+    public manageBooks(User user, manageBookMenu menu) {
         this.user = user;
+        this.menu = menu;
     }
 
     public static void addBookToList(Book book){
@@ -46,7 +48,7 @@ public class manageBooks {
         }
     }
 
-    public static void checkOutBook(){
+    public void checkOutBook(){
         Scanner scan = new Scanner(System.in);
         while(scan.hasNextLine()) {
             String bookChoice = scan.nextLine();
@@ -61,17 +63,15 @@ public class manageBooks {
             }
 
             if (checkOutSuccess == true) {
-                manageBookMenu menu = new manageBookMenu(user);
                 menu.bookCheckOutSuccess();
                 checkOutSuccess = false;
             } else {
-                manageBookMenu menu = new manageBookMenu(user);
                 menu.bookCheckOutError();
             }
         }
     }
 
-    public static void returnBook(){
+    public void returnBook(){
         Scanner scanner = new Scanner(System.in);
         while(scanner.hasNextLine()) {
             String returnChoice = scanner.nextLine();
@@ -84,11 +84,9 @@ public class manageBooks {
                 }
             }
             if (returnSuccess == true) {
-                manageBookMenu menu = new manageBookMenu(user);
                 menu.bookReturnSuccess();
                 returnSuccess = false;
             } else {
-                manageBookMenu menu = new manageBookMenu(user);
                 menu.bookReturnError();
             }
         }
