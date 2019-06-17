@@ -1,34 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="528d1500-1179-4b44-b900-e9cbd8c92c9b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/methods/manageMovieMenuTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/biblioteca/com/twu/methods/manageMovieMenuTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/methods/manageBookMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/infrastructure/ManageBookMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/methods/manageBookReservations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/infrastructure/ManageBookReservations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/methods/manageBooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/infrastructure/ManageBooks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/methods/manageLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/infrastructure/ManageLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/methods/manageMainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/infrastructure/ManageMainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/methods/manageMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/infrastructure/ManageMessages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/methods/manageMovieMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/infrastructure/ManageMovieMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/methods/manageMovieReservations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/infrastructure/ManageMovieReservations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/methods/manageMovies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/infrastructure/ManageMovies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/objects/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/objects/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/model/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/objects/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/objects/bookReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/model/BookReservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/objects/movieReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/model/MovieReservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/methods/manageBookMenuTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/infrastructure/ManageBookMenuTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/methods/manageBookReservationsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/infrastructure/ManageBookReservationsTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/methods/manageBooksTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/infrastructure/ManageBooksTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/methods/manageLoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/infrastructure/ManageLoginTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/methods/manageMainMenuTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/infrastructure/ManageMainMenuTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/methods/manageMessagesTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/infrastructure/ManageMessagesTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/methods/manageMovieMenuTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/infrastructure/ManageMovieMenuTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/methods/manageMovieReservationsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/infrastructure/ManageMovieReservationsTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/methods/manageMovieTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/infrastructure/ManageMovieTests.java" afterDir="false" />
-    </list>
+    <list default="true" id="528d1500-1179-4b44-b900-e9cbd8c92c9b" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -388,7 +361,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.12969925" side_tool="true" weight="0.25951776" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.31060606" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31060606" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.46843433" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
